@@ -19,18 +19,22 @@ $(document).ready(function()
  function addToCart()
  {
      item=this.name.split(":");
-     console.log(item[0]+" "+item[1]);
-     id=item[0];
+     //console.log(item[0]+" "+item[1]);
+     pid=item[0];
      topic=item[1];
+     datax="{\""+pid+"\":\""+topic+"\"}";
+     console.log(datax);
      $.ajax( 
              {
         type: "post",
         cache: false,
         url: "processcart.php",
-        data: {id:topic,id:topic},
-        datatype : "json",
+        data: JSON.parse(datax),
+        datatype : "jsonp",
                     success: function(data) {
-                        console.log("output"+data);
+                              
+                                console.log("Cart Items = "+JSON.parse(data)["size"]);
+                        $("#shoppingcartdiv").hide().html("Cart Items = "+((JSON.parse(data)["size"])-1)).fadeIn("fast");
                     }
             }   
    )

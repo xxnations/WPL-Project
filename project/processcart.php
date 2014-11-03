@@ -5,15 +5,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
 if(empty($_SESSION['cart']))
 {
-    $_SESSION['cart']="";
+                $cartitems["size"]=0;
+                $_SESSION['cart'] = $cartitems;
 }
-
 $cartitems=$_SESSION['cart'];
-
-$cartitems="1:success";
-echo $_POST['id'];
-echo json_encode($cartitems);
-
+foreach ($_POST as $key => $value) {
+    $cartitems[$key]=$value;
+}
+$cartitems['size']=  sizeof($cartitems);
+$_SESSION['cart']=$cartitems;
+//session_destroy();
+echo json_encode($_SESSION['cart']);
+//echo count($_SESSION);
 ?>
