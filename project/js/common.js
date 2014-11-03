@@ -6,7 +6,7 @@
 
 $(document).ready(function()
 {
-    
+    var listoftopics=new Array();
     addEvent();
     
  function addEvent()
@@ -45,4 +45,24 @@ $(document).ready(function()
     alert( "error" );
   });
  }
+ 
+ 
+ $('#listoftopics :checkbox').click(function() {
+    var $this = $(this);
+    // $this will contain a reference to the checkbox   
+    item=this.name.split(":");
+    if ($this.is(':checked')) {
+        console.log(item[0]);
+        listoftopics[item[0]]=item[1];
+        
+    } else {
+        delete listoftopics[item[0]];
+    }
+    for(i in listoftopics   )
+    {
+        console.log(i+" - "+listoftopics[i]);
+    }
 });
+
+});
+

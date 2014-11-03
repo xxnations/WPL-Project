@@ -27,14 +27,14 @@ include('Databaseadapter.php');
             }
             ?>
         </div>
-        <table>
-            <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th></tr>
+        <table id="listoftopics">
+            <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th><th>Select</th></tr>
 
 <?php
 $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopics();
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><button class=\"addtocartbutton\"  name=" . $row['topicid'] . ":" . $row['topicname'] . ">Add to Cart</button></td></tr>";
+    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><button class=\"addtocartbutton\"  name=" . $row['topicid'] . ":" . $row['topicname'] . ">Add to Cart</button></td><td><input type=\"checkbox\" name=" . $row['topicid'] . ":" . $row['topicname'] . "></tr>";
 }
 ?>
         </table>
