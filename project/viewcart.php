@@ -40,7 +40,7 @@ $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopicsById($cartitems);
 if(!empty($result))
 {
-while ($row = mysql_fetch_array($result)) {
+foreach ($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
 }
 }

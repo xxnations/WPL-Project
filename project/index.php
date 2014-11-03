@@ -35,7 +35,7 @@ include('Databaseadapter.php');
 <?php
 $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopics();
-while ($row = mysql_fetch_array($result)) {
+foreach($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
 }
 ?>

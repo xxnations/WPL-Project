@@ -15,17 +15,18 @@ class Databaseadapter {
     //put your code here
     public function getDatabaseConnection()
     {
-        $conn = mysql_connect('starchproducts.net:3306\\shaishav_asdb', 'shaishav_root', 'rootroot');
+        //$conn = mysql_connect('starchproducts.net:3306\\shaishav_asdb', 'shaishav_root', 'rootroot');
+        $conn = new PDO('mysql:host=cpanel.starchproducts.net;dbname=shaishav_asdb', 'shaishav_root', 'rootroot');
 if (!$conn) {
     die('Not connected : ' . mysql_error());
 }
-mysql_select_db("shaishav_asdb",$conn);
+//mysql_select_db("shaishav_asdb",$conn);
 return $conn;
     }
     
     public function closeConnection($conn)
     {
-        mysql_close($conn);
+        $conn=null;
     }
     
     public function getTopics()
@@ -35,7 +36,7 @@ return $conn;
         try
         {
         $conn=$this->getDatabaseConnection();
-        $result=mysql_query($query,$conn);
+        $result = $conn->query($query);
         $this->closeConnection($conn);
         return $result;
         }
@@ -59,15 +60,15 @@ return $conn;
         $implode = implode(",", $topiclist);
         
         $query="select * from topic where topicid in (".$implode.")";
+       
         $conn=$this->getDatabaseConnection();
-        $result=mysql_query($query,$conn);
+        $result = $conn->query($query);
         $this->closeConnection($conn);
         return $result;
-          }
+        }
  catch (Exception $ex)
  {
      echo $ex->getMessage();
-     
  }
         
     }
