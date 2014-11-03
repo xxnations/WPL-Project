@@ -32,9 +32,43 @@ return $conn;
     {
         $query="select * from topic";
         
+        try
+        {
         $conn=$this->getDatabaseConnection();
         $result=mysql_query($query,$conn);
+        $this->closeConnection($conn);
         return $result;
+        }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
     }
     
+    public function getTopicsById($cartitems)
+    {
+       $topiclist=Array();
+        try
+        {
+        foreach ($cartitems as $key => $value) {
+            if ($key === "size") {
+                continue;
+            }
+            array_push($topiclist, $key);
+        }
+        $implode = implode(",", $topiclist);
+        
+        $query="select * from topic where topicid in (".$implode.")";
+        $conn=$this->getDatabaseConnection();
+        $result=mysql_query($query,$conn);
+        $this->closeConnection($conn);
+        return $result;
+          }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+     
+ }
+        
+    }
 }

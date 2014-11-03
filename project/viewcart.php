@@ -17,7 +17,7 @@ include('Databaseadapter.php');
         <title></title>
     </head>
     <body>
-        <div id="shoppingcartdiv">
+         <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
                 $cartitems["size"]=0;
@@ -29,16 +29,28 @@ include('Databaseadapter.php');
             }
             ?>
         </div>
-        <table id="listoftopics">
-            <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th></tr>
+        <table id="listoftopicsincart">
+            <tr><th>Topic Name</th><th>Price</th><th>Remove</th></tr>
 
 <?php
+try
+{
+$cartitems=$_SESSION['cart'];
 $databaseadapter = new Databaseadapter();
-$result = $databaseadapter->getTopics();
+$result = $databaseadapter->getTopicsById($cartitems);
+if(!empty($result))
+{
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
+    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
 }
+}
+}
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
 ?>
         </table>
+        
     </body>
 </html>
