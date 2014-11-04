@@ -1,8 +1,6 @@
-#shoppingcartdiv
-{
+#shoppingcartdiv{
     float:right;
 }
-
 .addtocartbutton {
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
@@ -33,10 +31,7 @@
 .addtocartbutton:active {
    border-top-color: #1b435e;
    background: #1b435e;
-   }
-   
-   
-   
+   }   
    .removefromcartbutton {
    border-top: 1px solid #96d1f8;
    background: #65a9d7;
@@ -67,4 +62,54 @@
 .removefromcartbutton:active {
    border-top-color: #1b435e;
    background: #1b435e;
+   }
+   
+   #headerdiv
+   {
+/*       background: url(../images/header-darkblue1.jpg);
+       width: 100%;
+       height: 100px;
+       background-repeat: repeat;*/
+background: #f2f2f2;
+border-top: 1px solid #e4e4e4;
+color: #333; 
+//line-height: 40px;
+       width: 100%;
+       height: 100px;
+   }
+   
+      #footerdiv
+   {
+/*       background: url(../images/header-darkblue1.jpg);
+       width: 100%;
+       height: 50px;
+       background-repeat: repeat;
+       bottom: 0;
+       position: static;*/
+
+background: #f2f2f2;
+border-top: 1px solid #e4e4e4;
+line-height: 40px;
+color: #333; 
+       
+   }
+   
+   body{
+       padding: 0px;
+       margin: 0px;
+       background: none repeat scroll 0 0 #fff;
+       
+       
+   }
+   
+   #body
+   {
+       position: relative;
+       min-height: 460px;
+   }
+   
+   #headertable
+   {
+       //color: #fff
+       
    }

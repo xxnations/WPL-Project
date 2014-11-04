@@ -17,6 +17,10 @@ include('Databaseadapter.php');
         <title></title>
     </head>
     <body>
+        <div id="header">
+        <?php include("common/header.php"); ?>
+        </div>
+        <div id="body">
          <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
@@ -51,6 +55,9 @@ foreach ($result as $row) {
  }
 ?>
         </table>
-        
+        </div>
+                    <div id="footer">
+                <?php include("common/footer.php"); ?>
+            </div>
     </body>
 </html>

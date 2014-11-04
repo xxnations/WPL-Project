@@ -17,6 +17,10 @@ include('Databaseadapter.php');
         <title></title>
     </head>
     <body>
+        <div id="header">
+        <?php include("common/header.php"); ?>
+        </div>
+        <div id="body">
         <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
@@ -29,6 +33,7 @@ include('Databaseadapter.php');
             }
             ?>
         </div>
+
         <table id="listoftopics">
             <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th></tr>
 
@@ -37,8 +42,14 @@ $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopics();
 foreach($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
+     
 }
 ?>
+            
         </table>
+                    </div>
+            <div id="footer">
+                <?php include("common/footer.php"); ?>
+            </div>
     </body>
 </html>
