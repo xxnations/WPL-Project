@@ -24,8 +24,8 @@ and open the template in the editor.
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
-            <form action="" method="POST">
-            <table id="registerform">
+            <form action="" method="POST" id="registrationform">
+            <table id="registertable">
                 <tr>
                     <td>First Name </td><td><input type="text" maxlength="20" name="firstname" id="firstname"/></td>
                 </tr>
@@ -49,7 +49,7 @@ and open the template in the editor.
                     
                 </tr>
                 <tr align="right">
-                    <td colspan="2" ><input type="submit" value="register" id='register' name='register'/></td>
+                    <td colspan="2" ><input type="submit" value="register" id='registerbutton' name='registerbutton'/></td>
                 </tr>
             </table>
         </form>
