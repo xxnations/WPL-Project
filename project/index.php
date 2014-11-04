@@ -12,8 +12,10 @@ include('Databaseadapter.php');
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
+                <link rel="stylesheet" type="text/css" href="css/slider.css">
         <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
+<script src="js/slider.js"></script>
         <title></title>
     </head>
     <body>
@@ -33,21 +35,44 @@ include('Databaseadapter.php');
             }
             ?>
         </div>
-
+<?php if(empty($_SESSION['user']))
+{
+?>
         <table id="listoftopics">
             <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th></tr>
 
 <?php
 $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopics();
+//if(!empty($_SESSION['user']))
+//{
 foreach($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
      
 }
+//}
+//else
+//{
+//foreach($result as $row) {
+//    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbuttonnormal\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
+//    
+//}
 ?>
             
         </table>
-                    </div>
+<?php }
+else
+{
+    
+
+?>
+            <div id="sliderdiv">
+<div id="newscontainer"></div>
+<a class="button" href="#" id="prev" onclick="prev(); return false;" >Prev</a> 
+<a class="button" href="#" id="right" onclick="next(); return false;" >Next</a> 
+ 
+</div>
+<?php }?>    </div>
             <div id="footer">
                 <?php include("common/footer.php"); ?>
             </div>

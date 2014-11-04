@@ -33,6 +33,7 @@ include('Databaseadapter.php');
             }
             ?>
         </div>
+            <form action="checkout.php" method="POST">
         <table id="listoftopicsincart">
             <tr><th>Topic Name</th><th>Price</th><th>Remove</th></tr>
 
@@ -48,6 +49,11 @@ foreach ($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
 }
 }
+else
+{
+    ?><tr align="center"><td colspan="3" > No items in Cart</td></tr>
+        <?php
+}
 }
  catch (Exception $ex)
  {
@@ -55,7 +61,17 @@ foreach ($result as $row) {
  }
 ?>
         </table>
+                 <?php if(!empty($_SESSION['user']))
+        {
+            echo "CheckOut";
+        }
+        else
+        {
+            echo "Log in to Checkout";
+        }
+?>
         </div>
+       
                     <div id="footer">
                 <?php include("common/footer.php"); ?>
             </div>

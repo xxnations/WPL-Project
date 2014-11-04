@@ -1,0 +1,25 @@
+#sliderdiv
+{ 
+padding: 5px;
+margin: 15px;
+width:500px;
+height:250px;
+/* background-image: url('../img/loading.gif');
+background-position :center;
+background-repeat:no-repeat;
+ */}
+
+#newscontainer
+{
+padding: 5px;
+text-align:left;
+height:200px;
+width:500px;
+overflow:hidden;
+display:none;
+}
+
+.button
+{
+color: #FOFOFO;
+}

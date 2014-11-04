@@ -12,9 +12,11 @@ $(document).ready(function()
  function addEvent()
  {
      addtocartbuttons=document.getElementsByClassName('addtocartbutton');
+     addtocartbuttonsnormal=document.getElementsByClassName('addtocartbuttonnormal');
      removefromcartbutton=document.getElementsByClassName('removefromcartbutton');
-     $.each(addtocartbuttons,function(){this.onclick=addToCart});
-     $.each(removefromcartbutton,function(){this.onclick=removeFromCart});
+     
+        $.each(addtocartbuttons,function(){this.onclick=addToCart});
+        $.each(removefromcartbutton,function(){this.onclick=removeFromCart});
      
  }
  

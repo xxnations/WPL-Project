@@ -13,44 +13,31 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-       if(!empty($_POST))
-       {
-           var_dump($_POST);
-           $_SESSION['user']="username";
-       }
-       else
-       {
-        ?>
+        
         <div id="header">
         <?php include("common/header.php"); ?>
         </div>
-         <?php if(!empty($_SESSION['user']))
+        <?php if(empty($_SESSION['user']))
         {
             
         }
  else {?>
         <div id="body">
-            <form action="" method="POST" id="loginform">
             <table id="logintable">
                 <tr>
-                    <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid"/></td>
+                    <td><a href="subscriptionhistory.php">Subscription History </a></td>
                 </tr>
                 <tr>
-                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password"/></td>
+                    <td><a href="editprofile">Edit Profile </a></td>
                 </tr>
-                <tr align="right">
-                    <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
-                </tr>
+                
             </table>
-        </form>
-            <div id="errordiv">
-            </div>
              </div>
-          <?php } ?>
+         <?php } ?>
             <div id="footer">
                 <?php
-       }include("common/footer.php"); ?>
+       include("common/footer.php"); ?>
             </div>
+
     </body>
 </html>
