@@ -190,15 +190,21 @@ color: #333;
 {
     padding: 10px;
     text-align: center;
+    
+   
 }
 
-.ui-menu-item
+#sortbar
+{
+    display: inline;
+}
+/*.ui-menu-item
 {
     
     margin-left: -40px;
     list-style-type: none;
     padding: 1px;
-}
+}*/
 
 .topicbox
 {

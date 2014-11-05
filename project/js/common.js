@@ -6,8 +6,9 @@
 
 $(document).ready(function()
 {
-    var listoftopics=new Array();
     addEvent();
+    initializePriceSort();
+    initializeAlphabeticalSort();
     
     
  function addEvent()
@@ -15,10 +16,13 @@ $(document).ready(function()
      addtocartbuttons=document.getElementsByClassName('addtocartbutton');
      addtocartbuttonsnormal=document.getElementsByClassName('addtocartbuttonnormal');
      removefromcartbutton=document.getElementsByClassName('removefromcartbutton');
+     pricespan=document.getElementsByClassName('pricespan');
      checkoutbutton=document.getElementById('checkoutbutton');
      emailid=document.getElementById('emailid');
      searchbar=document.getElementById('searchbar');
-     
+     price=document.getElementById('price');
+     alphabetically=document.getElementById('alphabetically');
+    
      if(addtocartbuttons.length!==0)
   {
   $.each(addtocartbuttons,function(){this.onclick=addToCart});
@@ -42,23 +46,43 @@ $(document).ready(function()
             searchbar.oninput=search;
         }
         
-        //Getting the listoftags
-        $.ajax( 
-             {
-        type: "post",
-        cache: false,
-        url: "ajaxrequest.php?v=listoftopics",
-                            success: function(data) {
-                                listoftopics=data.split(",");
-                              
-                          }
-                      }   
-   )
-   .fail(function() {
-    
-   });
+        if(price!==null)
+        {
+            price.onclick=sortPrice;
+        }
+        
+        if(alphabetically!==null)
+        {
+            alphabetically.onclick=sortAlphabetically;
+        }
+        
+        
+        
+     }
+ 
+ function initializePriceSort()
+ {
+     //Sorted List
+           pricelist=new Array(); 
+           pricesortOrder=0;
+      $.each($("#listoftopics").children(),function(){
+       pricelist[$(this).children("[id=pricespan]").text()+","+this.id]=this;
+          
+      });
  }
  
+ function initializeAlphabeticalSort()
+ {
+     //Sorted List
+           alist=new Array(); 
+           aplabeticalsortOrder=0;
+      $.each($("#listoftopics").children(),function(){
+       //console.log(this.id);
+       alist[this.id]=this;
+          
+          
+      });
+ }
  function addToCart()
  {
      item=this.name.split(":");
@@ -176,19 +200,11 @@ function validateEmail()
 
 function search()
 {
-    console.log(this.value);
     $.each($("#listoftopics").children(),function(){
         $('#'+this.id).show();
           });
     
-    if(this.value.length>1)
-    {
-        q=this.value;
-    }
-    else
-    {
-     q=this.value;
-    }
+    q=this.value;
         //console.log($("[id^=x"+this.value+"]"));
       $.each($("#listoftopics").children(),function(){
           //console.log(q+"--"+this.id);
@@ -210,6 +226,72 @@ function search()
 //    });
     
     
+}
+
+function sortPrice()
+{
+    sortedList=new Array();  
+     mapKeys = Object.keys(pricelist);
+if(pricesortOrder===0)
+{
+    pricesortOrder=1;
+}
+else
+{
+    pricesortOrder=0;
+}
+
+if(pricesortOrder===0)
+{
+mapKeys.sort();
+}
+else
+{
+ mapKeys.sort().reverse();
+}
+
+mapKeys.forEach(function(key) {
+  //  console.log("Processing ", key);
+    sortedList[key]=pricelist[key];
+});
+       for(x in sortedList)
+       {
+        $('#listoftopics').prepend(sortedList[x]).show();
+       }
+    
+}
+
+function sortAlphabetically()
+{
+    console.log("Alpha Sort");
+        sortedList=new Array();  
+     mapKeys = Object.keys(alist);
+if(aplabeticalsortOrder===0)
+{
+    aplabeticalsortOrder=1;
+}
+else
+{
+    aplabeticalsortOrder=0;
+}
+
+if(aplabeticalsortOrder===0)
+{
+mapKeys.sort();
+}
+else
+{
+ mapKeys.sort().reverse();
+}
+
+mapKeys.forEach(function(key) {
+  //  console.log("Processing ", key);
+    sortedList[key]=alist[key];
+});
+       for(x in sortedList)
+       {
+        $('#listoftopics').prepend(sortedList[x]).show();
+       }
 }
 });
 
