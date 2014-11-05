@@ -21,18 +21,50 @@ include('Databaseadapter.php');
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
-<!--         <div id="shoppingcartdiv">
-            <?php
-            if (empty($_SESSION['cart'])) {
-                $cartitems["size"]=0;
-                $_SESSION['cart'] = $cartitems;
-            } else {
-                echo "<a href=viewcart.php>";
-                echo "Cart Items = ".(sizeof($_SESSION['cart'])-1);
-                echo "</a>";
-            }
-            ?>
-        </div>-->
+<?php 
+$databaseadapter = new Databaseadapter();
+if(!empty($_SESSION['user']))
+{
+
+$checkSubscription = $databaseadapter->checkSubscription($_SESSION['user']);
+$cartitems=$_SESSION['cart'];
+$change=false;
+
+$removed="";
+foreach ($checkSubscription as $key => $value) {
+    //echo "---".$key." ".$value[0]."<br>";
+    foreach ($cartitems as $ikey => $ivalue) {
+        if($ikey==="size")
+        {
+            continue;
+        }
+      //  echo $ikey." ".$ivalue." , ";
+        if($value[0]===$ivalue)
+        {
+            $removed=$removed.",".$ivalue;
+            unset($cartitems[$ikey]);
+            $change=true;
+            break;
+        }
+    }
+}
+if($change)
+{
+    unset($_SESSION['cart']);
+    $cartitems['size']=  count($cartitems);
+    $_SESSION['cart']=$cartitems;
+    $removed= ltrim ($removed, ',');
+    unset($_SESSION['removed']);
+    $_SESSION['removed']=$removed;
+     header("Location: viewcart.php");
+    $_SESSION['showmessage']=true;
+ 
+/* Make sure that code below does not get executed when we redirect. */
+exit;
+}
+
+}
+?>
             <form action="checkout.php" method="POST">
         <table id="listoftopicsincart">
             <tr><th>Topic Name</th><th>Price</th><th>Remove</th></tr>
@@ -45,7 +77,7 @@ $price=0;
 
 if(count($cartitems)>1)
 {
-$databaseadapter = new Databaseadapter();
+
 $result = $databaseadapter->getTopicsById($cartitems);
 foreach ($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
@@ -74,6 +106,22 @@ else
             echo "<a href=\"login.php\">Log in</a> or <a href=\"register\">Register</a> to Subscribe";
         }
 ?>
+                <div id="messagediv">
+                    <?php
+                    if(!empty($_SESSION['removed']))
+                    {
+                         if(!empty($_SESSION['showmessage']))
+                    {
+                        if($_SESSION['showmessage'])
+                        {
+                        echo "The following items are removed from your cart. Because you are already subscriped to it.<br> ".$_SESSION['removed'].""
+                                . "<br>Check <a href=\"subscriptionhistory.php\"> Subscription History</a> for more details.";
+                        $_SESSION['showmessage']=false;
+                        }
+                    }
+                    }
+                    ?>
+                </div>
                 <div id="paymentdiv">
                     <span>Total Amount to Pay : <?php echo $price; ?></span>
                     <span> <button id="paybutton">Pay</button></span>

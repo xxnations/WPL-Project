@@ -25,7 +25,14 @@ include('Databaseadapter.php');
         </div>
         <div id="body">
             <div class="ui-widget">
-                <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" ></div></div>
+            <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" >
+                <div id="sortbar">Sort :
+                    <input type="button" id="price" value="Price">
+                    <input type="button" id="alphabetically" value="Alphabetically">
+                    
+                 </div>
+                </div>    
+            </div>
  
             <div id="listoftopicsdiv">
         <div id="listoftopics">
@@ -38,7 +45,8 @@ $topiclist="";
 //if(!empty($_SESSION['user']))
 //{
 foreach($result as $row) {
-    echo "<div class=\"topicbox\" id=\"x" .$row['topicname'] . "\">" . $row['topicname'] . "<br>" . $row['price'] . "<br><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+     echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\">" . $row['topicname'] . "<br><span id=\"pricespan\">" . $row['price'] . "</span><br><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+    
     $topiclist=$topiclist.",".$row['topicname'];
 }
 $_SESSION['listoftopics']=$topiclist;

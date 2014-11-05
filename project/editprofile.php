@@ -46,9 +46,12 @@ exit;
                 $emailexists=$databaseadapter->checkIfEmailExists($email);
                 if($emailexists)
                 {
+                    if(!$_SESSION['emailid']===$email)
+                    {
                     $error=true;
                 $errormsg=$errormsg."Email Already Exists.<br>";
                 } 
+                }
             }
             else
             {

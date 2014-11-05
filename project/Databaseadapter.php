@@ -274,4 +274,52 @@ return $conn;
  }
          
      }
+     
+     public function checkSubscription($userid)
+     {
+          try
+        {
+        $query="select distinct topicname from subscription s 
+join topic_subscription ts on s.subscriptionid=ts.subscriptionid 
+join topic t on t.topicid=ts.topicid                                
+where s.`timestamp`>NOW() - INTERVAL 30 DAY 
+and userid=?";
+        
+        $conn=$this->getDatabaseConnection();
+        $preparestatement = $conn->prepare($query);
+        $preparestatement->bindValue(1,$userid);
+        $preparestatement->execute();
+        $result=$preparestatement->fetchAll();
+        $preparestatement->closeCursor();
+        $this->closeConnection($conn);
+        return $result;
+        }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
+     }
+     
+     
+     public function getSubscritionHistory($userid)
+     {
+          try
+        {
+        $query="select * from topic_subscription ts join subscription s on s.subscriptionid=ts.subscriptionid join topic t on t.topicid=ts.topicid
+where s.userid=? order by s.timestamp desc";
+        
+        $conn=$this->getDatabaseConnection();
+        $preparestatement = $conn->prepare($query);
+        $preparestatement->bindValue(1,$userid);
+        $preparestatement->execute();
+        $result=$preparestatement->fetchAll();
+        $preparestatement->closeCursor();
+        $this->closeConnection($conn);
+        return $result;
+        }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
+     }
 }
