@@ -36,6 +36,7 @@ else
                     <td><h3> <b><a href="index.php">{Article Subscription}</a></b></h3> </td>
                     <td><h3> <b><a href="register.php">Register</a></b></h3> </td>
                     <td><h3> <b><a href="login.php">login</a></b></h3> </td>
+                    <td><h3> <b><a href="forgotpassword.php"> Forgot Password </a></b></h3> </td>
                 </tr>
             </table>
             <div id="shoppingcartdiv">

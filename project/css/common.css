@@ -214,3 +214,8 @@ color: #333;
     padding: 60px;
     
 }
+
+#topiclist
+{
+    display: none;
+}

@@ -22,7 +22,7 @@ $(document).ready(function()
      searchbar=document.getElementById('searchbar');
      price=document.getElementById('price');
      alphabetically=document.getElementById('alphabetically');
-    
+     
      if(addtocartbuttons.length!==0)
   {
   $.each(addtocartbuttons,function(){this.onclick=addToCart});
@@ -38,7 +38,7 @@ $(document).ready(function()
         }
          if(emailid!==null)
         {
-            emailid.onchange=validateEmail;
+            emailid.oninput=validateEmail;
         }
         
          if(searchbar!==null)
@@ -149,6 +149,8 @@ function checkout()
 function validateEmail()
 {
     email=this.value;
+    if(email.length>6)
+    {
     datax="{\"emailid\":\""+email+"\"}";
     $.ajax( 
              {
@@ -160,12 +162,12 @@ function validateEmail()
                     success: function(emailexists) {
                               registerbutton=document.getElementById("registerbutton");
                               loginbutton=document.getElementById("loginbutton");
-                               console.log(emailexists.trim());
+                               //console.log(emailexists.trim());
                                 if(emailexists.trim()==="t")
                                 {
                                     if(registerbutton!==null)
                                     {
-                                     console.log("Invalid Email");
+                                     //console.log("Invalid Email");
                                      registerbutton.disabled=true;
                                     }
                                     else
@@ -178,7 +180,7 @@ function validateEmail()
                                 {
                                     if(registerbutton!==null)
                                     {
-                                    console.log("Valid Email");
+                                    //console.log("Valid Email");
                                     registerbutton.disabled=false;
                                     }
                                     else
@@ -196,6 +198,7 @@ function validateEmail()
    .fail(function() {
     alert( "error" );
    });
+    }
 }
 
 function search()

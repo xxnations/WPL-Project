@@ -36,35 +36,24 @@ include('Databaseadapter.php');
                 $errormsg=$errormsg."Invalid Email";
             }
 
-            if (!(filter_var($_POST['password'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/['\"]/"))))) {
-                $password = $_POST['password'];
-            }
-            else
-            {
-                $error=true;
-                $errormsg=$errormsg."Invalid password";
-            }
-            if (strlen($email) > 3 && strlen($password) > 0) {
+            
+            if (strlen($email) > 3) {
                 //Check here in database if userexist
                 $databaseadapter = new Databaseadapter();
-                $result = $databaseadapter->checkUser($email, $password);
-                if (!empty($result)) {
-                    foreach ($result as $row) {
-                        var_dump($row);
-                        $_SESSION['username'] = $row['firstname'];
-                        $_SESSION['user'] = $row['userid'];
-                        $_SESSION['emailid'] = $row['emailid'];
-                        if($_SESSION['user'])
-                            {
+                $result = $databaseadapter->checkIfEmailExists($email);
+                if ($result) {
+                    
                                 /* Redirect browser */
-                    header("Location: index.php");
+                    echo "Send Email Success";
+                    $_SESSION['message']="An Email has been send successfully with Login Information";
+                    header("Location: login.php");
 
                     /* Make sure that code below does not get executed when we redirect. */
                     exit;
-                            }
                     }
                 }
-            }
+        
+            
             ?>
             <div id="body">
                 Error in the credentials
@@ -73,24 +62,11 @@ include('Databaseadapter.php');
                         <tr>
                             <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid'];?>"/></td>
                         </tr>
-                        <tr>
-                            <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" /></td>
-                        </tr>
                         <tr align="right">
                             <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
                         </tr>
                     </table>
                 </form>
-                <div id="messagediv">
-                    <?php
-        
-        if(!empty($_SESSION['message']))
-        {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        }
-        ?>
-                </div>
                 <div id="errordiv">
                 </div>
             </div>
@@ -109,24 +85,13 @@ include('Databaseadapter.php');
                             <tr>
                                 <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" /></td>
                             </tr>
-                            <tr>
-                                <td>Password </td><td><input type="password" maxlength="20" name="password" id="password"/></td>
-                            </tr>
+                            
                             <tr align="right">
                                 <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
                             </tr>
                         </table>
                     </form>
-<div id="messagediv">
-                    <?php
-        
-        if(!empty($_SESSION['message']))
-        {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        }
-        ?>
-                </div>
+
                     <div id="errordiv">
                     </div>
                 </div>

@@ -1,8 +1,3 @@
- var newstitle=['India',
-			  'World',
-			  'Politics',
-			  'Business',
-			  'Humour'];
  
 /*   var intervalId="";
   var 	item_html="";
@@ -16,11 +11,14 @@ $(document).ready(function(){
  
    sliderdiv=$("#sliderdiv");
    newscontainer=$("#newscontainer");
-
-  if(sliderdiv.length!==0)
-  {
-  slideNews();
-  }
+   if(document.getElementById("topiclist")!==null)
+   {
+   newstitle=(document.getElementById("topiclist").textContent).trim().split(",");
+    slideNews();
+    }
+   
+ 
+  
 	  		
 		function slideNews()
 		{

@@ -65,9 +65,32 @@ $_SESSION['listoftopics']=$topiclist;
 <?php }
 else
 {
+   $databaseadapter = new Databaseadapter();
+if(!empty($_SESSION['user']))
+{
+
+$checkSubscription = $databaseadapter->checkSubscription($_SESSION['user']);
+$topiclist="";
+foreach ($checkSubscription as $key => $value) {
     
+    $topiclist=$topiclist.",".$value[0];
+}
+
+}
 
 ?>
+            <?php
+            echo ltrim($topiclist,",");
+            
+            ?>
+     <div id="topiclist">
+         <?php 
+         if(!empty($topiclist))
+         {
+         echo ltrim($topiclist,",");
+         }
+         ?>
+     </div>
             <div id="sliderdiv">
 <div id="newscontainer"></div>
 <a class="button" href="#" id="prev" onclick="prev(); return false;" >Prev</a> 
