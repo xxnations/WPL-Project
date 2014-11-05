@@ -22,7 +22,10 @@ and open the template in the editor.
     
 }
 
-table tr td{
+#registertable tr td {
         padding: 10px;
 }
 
+#logintable tr td {
+        padding: 10px;
+}

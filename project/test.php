@@ -25,14 +25,25 @@ include('Databaseadapter.php');
         </div>
         <div id="body">
             <div class="ui-widget">
-                <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" ></div></div>
-        
+                <div id="searchbardiv"> Search : <input type="search" id="searchbar" name="searchbar" ></div></div>
+<!--        <div id="shoppingcartdiv">
+            <?php
+            if (empty($_SESSION['cart'])) {
+                $cartitems["size"]=0;
+                $_SESSION['cart'] = $cartitems;
+            } else {
+                echo "<a href=viewcart.php>";
+                echo "Cart Items = ".(sizeof($_SESSION['cart'])-1);
+                echo "</a>";
+            }
+            ?>
+        </div>-->
 <?php if(empty($_SESSION['user']))
 {
 ?>
             <div id="listoftopicsdiv">
-        <div id="listoftopics">
-            
+        <table id="listoftopics">
+            <tr><th>Topic Name</th><th>Price</th><th>Add to Cart</th></tr>
 
 <?php
 $databaseadapter = new Databaseadapter();
@@ -41,7 +52,7 @@ $topiclist="";
 //if(!empty($_SESSION['user']))
 //{
 foreach($result as $row) {
-    echo "<div class=\"topicbox\" id=\"x" .$row['topicname'] . "\">" . $row['topicname'] . "<br>" . $row['price'] . "<br><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></td></tr>";
     $topiclist=$topiclist.",".$row['topicname'];
 }
 $_SESSION['listoftopics']=$topiclist;
@@ -54,7 +65,7 @@ $_SESSION['listoftopics']=$topiclist;
 //}
 ?>
             
-        </div>
+        </table>
             </div>
 <?php }
 else

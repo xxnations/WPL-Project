@@ -16,9 +16,11 @@ $(document).ready(function(){
  
    sliderdiv=$("#sliderdiv");
    newscontainer=$("#newscontainer");
-  
+
+  if(sliderdiv.length!==0)
+  {
   slideNews();
-  
+  }
 	  		
 		function slideNews()
 		{

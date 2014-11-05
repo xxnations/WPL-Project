@@ -7,15 +7,8 @@ and open the template in the editor.
 <?php session_start(); 
 
  session_unset();
+            /* Redirect browser */
+header("Location: index.php");
+exit;
+      
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>

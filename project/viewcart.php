@@ -21,7 +21,7 @@ include('Databaseadapter.php');
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
-         <div id="shoppingcartdiv">
+<!--         <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
                 $cartitems["size"]=0;
@@ -32,7 +32,7 @@ include('Databaseadapter.php');
                 echo "</a>";
             }
             ?>
-        </div>
+        </div>-->
             <form action="checkout.php" method="POST">
         <table id="listoftopicsincart">
             <tr><th>Topic Name</th><th>Price</th><th>Remove</th></tr>
@@ -41,12 +41,15 @@ include('Databaseadapter.php');
 try
 {
 $cartitems=$_SESSION['cart'];
+$price=0;
+
+if(count($cartitems)>1)
+{
 $databaseadapter = new Databaseadapter();
 $result = $databaseadapter->getTopicsById($cartitems);
-if(!empty($result))
-{
 foreach ($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
+    $price=$price+$row['price'];
 }
 }
 else
@@ -63,13 +66,17 @@ else
         </table>
                  <?php if(!empty($_SESSION['user']))
         {
-            echo "CheckOut";
+            echo "<button id=\"checkoutbutton\">CheckOut</button>";
         }
         else
         {
-            echo "Log in to Checkout";
+            echo "<a href=\"login.php\">Log in</a> or <a href=\"register\">Register</a> to Subscribe";
         }
 ?>
+                <div id="paymentdiv">
+                    <span>Total Amount to Pay : <?php echo $price; ?></span>
+                    <span> <button id="paybutton">Pay</button>
+                </div>
         </div>
        
                     <div id="footer">
