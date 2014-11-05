@@ -51,6 +51,7 @@ foreach ($result as $row) {
     echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
     $price=$price+$row['price'];
 }
+$_SESSION['totalprice']=$price;
 }
 else
 {
@@ -75,8 +76,9 @@ else
 ?>
                 <div id="paymentdiv">
                     <span>Total Amount to Pay : <?php echo $price; ?></span>
-                    <span> <button id="paybutton">Pay</button>
+                    <span> <button id="paybutton">Pay</button></span>
                 </div>
+            </form>
         </div>
        
                     <div id="footer">

@@ -220,4 +220,58 @@ return $conn;
  }
          
      }
+     
+     public function storePayment()
+     {
+         
+         
+          try
+        {
+        $query="insert into subscription values(null,?,null,?,?)";
+        
+        $conn=$this->getDatabaseConnection();
+        $preparestatement = $conn->prepare($query);
+        $preparestatement->bindValue(1,$_SESSION['user']);
+        $preparestatement->bindValue(2,"demo");
+        $preparestatement->bindValue(3,$_SESSION['totalprice']);
+        $preparestatement->execute();
+        $subscribtionid=$conn->lastInsertId();
+        $result=$preparestatement->rowCount();
+        $preparestatement->closeCursor();
+        $this->closeConnection($conn);
+        if($result>0)
+        {
+            $query="insert into topic_subscription values(null,?,".$subscribtionid.")";
+            
+            $conn=$this->getDatabaseConnection();
+            $preparestatement = $conn->prepare($query);
+            
+            foreach ($_SESSION['cart'] as $key => $value) {
+             if($key==="size")  
+             {
+                 continue;
+             }
+             $preparestatement->bindValue(1,$key);
+             $preparestatement->execute();
+             if(!($preparestatement->rowCount()>0))
+             {
+                 return false;
+             }
+             
+         }
+                $_SESSION['cart']=null;
+                $cartitems["size"]=0;
+                $_SESSION['cart'] = $cartitems;
+         return true;
+        }
+ else {
+     return false;
+ }      
+        }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
+         
+     }
 }

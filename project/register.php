@@ -32,6 +32,13 @@ include('Databaseadapter.php');?>
             $errormsg="";
             if (filter_var($_POST['emailid'], FILTER_VALIDATE_EMAIL)) {
                 $email = $_POST['emailid'];
+                $databaseadapter = new Databaseadapter();
+                $emailexists=$databaseadapter->checkIfEmailExists($email);
+                if($emailexists)
+                {
+                    $error=true;
+                $errormsg=$errormsg."Email Already Exists.<br>";
+                } 
             }
             else
             {
