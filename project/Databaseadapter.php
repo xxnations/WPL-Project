@@ -155,6 +155,27 @@ return $conn;
  }
     }
     
+    public function getPassword($emailid)
+    {
+        try
+        {
+        $query="select password from user where emailid=?";
+       
+        $conn=$this->getDatabaseConnection();
+        $preparestatement = $conn->prepare($query);
+        $preparestatement->bindValue(1,$emailid);
+        $preparestatement->execute();
+        $result=$preparestatement->fetchAll();
+        $preparestatement->closeCursor();
+        $this->closeConnection($conn);
+        return $result;      
+        }
+ catch (Exception $ex)
+ {
+     echo $ex->getMessage();
+ }
+    }
+    
      public function saveUser($firstname,$lastname,$email,$password,$gender)
      {
          try

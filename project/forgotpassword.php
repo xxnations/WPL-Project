@@ -6,6 +6,7 @@ and open the template in the editor.
 -->
 <?php session_start();
 include('Databaseadapter.php');
+
 ?>
 <html>
     <head>
@@ -40,20 +41,47 @@ include('Databaseadapter.php');
             if (strlen($email) > 3) {
                 //Check here in database if userexist
                 $databaseadapter = new Databaseadapter();
-                $result = $databaseadapter->checkIfEmailExists($email);
+                $result = $databaseadapter->getPassword($email);
+                
                 if ($result) {
-                    
-                                /* Redirect browser */
+                    require("smtp.php");
+        require("sasl.php");
+        $from = 'articlesubscriptionwpl@gmail.com';
+        $to = 'articlesubscriptionwpl@gmail.com';
+        //$to=$email
+        $smtp=new smtp_class;
+        $smtp->host_name="smtp.gmail.com";
+        $smtp->host_port='465';
+        $smtp->user='articlesubscriptionwpl@gmail.com';
+        $smtp->password='pathikshaishav';
+        $smtp->ssl=1;
+        $smtp->debug=0;       //0 here in production
+        $smtp->html_debug=1; //same
+        
+        $sendMessage = $smtp->SendMessage($from,array($to),array(
+        "From: $from",
+        "To: $to",
+        "Subject: Password Recovery",
+        "Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")),
+        "Hello $email,\n\nYour credentials are as follow.\n\n"
+                . "Email : $email\n"
+                . "Password ".$result[0]['password']
+                . "\n\nBye.\n");
+
+    if($sendMessage)
+    {
+                    /* Redirect browser */
+            
                     echo "Send Email Success";
                     $_SESSION['message']="An Email has been send successfully with Login Information";
                     header("Location: login.php");
 
                     /* Make sure that code below does not get executed when we redirect. */
                     exit;
-                    }
+                    
                 }
-        
-            
+                }    
+    }        
             ?>
             <div id="body">
                 Error in the credentials
