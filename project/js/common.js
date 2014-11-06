@@ -141,7 +141,7 @@ $(document).ready(function()
  
 function checkout()
 {
-    console.log("Clicked Checkout");
+    //console.log("Clicked Checkout");
     $('#paymentdiv').show();
     return false;
 }
@@ -167,7 +167,7 @@ function validateEmail()
                                 {
                                     if(registerbutton!==null)
                                     {
-                                     console.log("Invalid Email");
+                                     //console.log("Invalid Email");
                                      registerbutton.disabled=true;
                                     }
                                     else
@@ -180,7 +180,7 @@ function validateEmail()
                                 {
                                     if(registerbutton!==null)
                                     {
-                                    console.log("Valid Email");
+                                    //console.log("Valid Email");
                                     registerbutton.disabled=false;
                                     }
                                     else
@@ -266,7 +266,7 @@ mapKeys.forEach(function(key) {
 
 function sortAlphabetically()
 {
-    console.log("Alpha Sort");
+    //console.log("Alpha Sort");
         sortedList=new Array();  
      mapKeys = Object.keys(alist);
 if(aplabeticalsortOrder===0)
