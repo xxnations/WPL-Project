@@ -134,7 +134,7 @@ $(document).ready(function(){
 				function next()
 		{
 		clearInterval(intervalId);
-		console.log(num);
+		//console.log(num);
 		item_html="";
 		
 		if(++num >= len)
@@ -180,7 +180,7 @@ $(document).ready(function(){
 					num--;
 					}
 					title=newstitle[num];
-					console.log(title);
+					//console.log(title);
 		  $('#rssdata').ready(function () {
     $.ajax({
 	url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=8&q=https%3A%2F%2Fnews.google.com%2Fnews%2Fsection%3Fq%3D'+title+'%26output%3Drss',

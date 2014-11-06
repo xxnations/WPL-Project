@@ -5,7 +5,14 @@ include('Databaseadapter.php');
 
         if($_GET['v']=="email")
 {
-            $emailid=$_POST['emailid'];
+            
+            if(empty($_POST['emailid']))
+            {
+                $emailid=$_GET['emailid'];
+            }
+            else {
+                   $emailid=$_POST['emailid'];
+            }
  
             $databaseadapter = new Databaseadapter();
   $EmailExists = $databaseadapter->checkIfEmailExists($emailid);

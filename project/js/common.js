@@ -156,7 +156,7 @@ function validateEmail()
              {
         type: "post",
         cache: false,
-        url: "ajaxrequest.php?v=email",
+        url: "ajaxrequest.php?v=email&emailid="+email,
         data: JSON.parse(datax),
         
                     success: function(emailexists) {
@@ -167,7 +167,7 @@ function validateEmail()
                                 {
                                     if(registerbutton!==null)
                                     {
-                                     //console.log("Invalid Email");
+                                     console.log("Invalid Email");
                                      registerbutton.disabled=true;
                                     }
                                     else
@@ -180,7 +180,7 @@ function validateEmail()
                                 {
                                     if(registerbutton!==null)
                                     {
-                                    //console.log("Valid Email");
+                                    console.log("Valid Email");
                                     registerbutton.disabled=false;
                                     }
                                     else
