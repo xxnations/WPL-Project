@@ -48,6 +48,7 @@ include('Databaseadapter.php');?>
             }
             if(empty($_POST['password']))
                 {
+                $error=true;
                     $errormsg=$errormsg."Password cannot be Empty.<br>";
                 }
                 
@@ -63,6 +64,7 @@ include('Databaseadapter.php');?>
             }
             if(empty($_POST['repassword']))
                 {
+                $error=true;
                     $errormsg=$errormsg."Retyped Password cannot be Empty.<br>";
                 }
             if (!(filter_var($_POST['repassword'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/['\"]/"))))) {
@@ -91,6 +93,7 @@ include('Databaseadapter.php');?>
                 $errormsg=$errormsg."Error in Lastname.<br>";
             }
             if (!empty($_POST['gender'])) {
+                
                 $gender = $_POST['gender'];
             }
             else
