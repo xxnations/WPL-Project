@@ -14,6 +14,7 @@ include('Databaseadapter.php');
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
                                 <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
+        <script src="js/register_validation.js?time=<?php echo time(); ?>"></script>
         <title></title>
     </head>
     <body>
@@ -145,13 +146,13 @@ exit;
                     <td>Last Name </td><td><input type="text" maxlength="20" name="lastname" id="lastname" value="<?php echo $_POST['lastname']?>"/></td>
                 </tr>
                 <tr>
-                    <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid']?>"/></td>
+                    <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid']?>" required/></td>
                 </tr>
                 <tr>
-                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" value="<?php echo $_POST['password']?>"/></td>
+                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" value="<?php echo $_POST['password']?>" required/></td>
                 </tr>
                 <tr>
-                    <td>Retype Password </td><td><input type="password" maxlength="20" name="repassword" id="repassword" value="<?php echo $_POST['repassword']?>"/></td>
+                    <td>Retype Password </td><td><input type="password" maxlength="20" name="repassword" id="repassword" value="<?php echo $_POST['repassword']?>" required/></td>
                  </tr>
                  <?php if($_POST['gender']==="m")
                  {?>

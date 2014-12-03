@@ -107,10 +107,10 @@ include('Databaseadapter.php');
                     <form action="" method="POST" id="loginform">
                         <table id="logintable">
                             <tr>
-                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" /></td>
+                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
                             </tr>
                             <tr>
-                                <td>Password </td><td><input type="password" maxlength="20" name="password" id="password"/></td>
+                                <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" required/></td>
                             </tr>
                             <tr align="right">
                                 <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>

@@ -17,15 +17,15 @@ $(document).ready(function()
  
 function validateRegisterForm(){
     errormsg="";
+    error=false;
     
-    pswd=document.forms["registrationform"]["password"].value;
-    splitpswd=pswd.search(/[\w\d]*/);
+//    pswd=document.forms["registrationform"]["password"].value;
+//    splitpswd=pswd.split(/[\W]/);
     
-    console.log(splitpswd);
-    if(true){
-       errormsg=errormsg+"Invalid password<br>";
-        error=true; 
-    }
+////    if(true){
+////       errormsg=errormsg+"Invalid password<br>";
+////        error=true; 
+////    }
     
     
     fn=document.forms["registrationform"]["firstname"].value;
@@ -53,10 +53,32 @@ function validateRegisterForm(){
     if(splitln1!==-1){
        errormsg=errormsg+"Invalid lastname<br>";
         error=true; 
+    }    
     }
     
+    pswd=document.forms["registrationform"]["password"].value;
+    splitpswd=pswd.split(/[\W]/);
+//    console.log(pswd);
+//   
+//    for(i=0;i<splitpswd.length;i++){
+//         console.log(splitpswd[i]);
+//    }
+    if(splitpswd.length!==1){
+        errormsg=errormsg+"Invalid password (Enter only alphanumeric characters)<br>";
+        error=true;
+    }    
     
-    }
+    repswd=document.forms["registrationform"]["repassword"].value;
+//    console.log(pswd);
+//   
+//    for(i=0;i<splitpswd.length;i++){
+//         console.log(splitpswd[i]);
+//    }
+    if(repswd!==pswd){
+        errormsg=errormsg+"Passwords do not match<br>";
+        error=true;
+    }   
+    
     if(error===true){
         $("#errordiv").html(errormsg);
         return false;
