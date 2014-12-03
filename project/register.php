@@ -13,6 +13,7 @@ include('Databaseadapter.php');?>
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
                         <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
+        <script src="js/register_validation.js?time=<?php echo time(); ?>"></script>
         <title></title>
     </head>
     <body>
