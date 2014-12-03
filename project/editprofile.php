@@ -137,6 +137,7 @@ exit;
            
             ?>
         <div id="body">
+            <div id="center">
             <form action="" method="POST" id="registrationform">
             <table id="registertable">
                 <tr>
@@ -185,6 +186,7 @@ exit;
                 <?php echo ($errormsg); ?>
             </div>
              </div>
+        </div>
                 <?php
             
        }
@@ -197,6 +199,7 @@ exit;
         ?>
         
         <div id="body">
+            <div id="center">
             <form action="" method="POST" id="registrationform">
             <table id="registertable">
                 <tr>
@@ -242,6 +245,7 @@ exit;
             <div id="errordiv">
             </div>
              </div>
+        </div>
        <?php } ?>
             <div id="footer">
                 <?php

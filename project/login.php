@@ -14,6 +14,7 @@ include('Databaseadapter.php');
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
          <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
+        <script src="js/login_validtion.js?time=<?php echo time(); ?>"></script>
         <title></title>
     </head>
     <body>
@@ -67,7 +68,8 @@ include('Databaseadapter.php');
             }
             ?>
             <div id="body">
-                Error in the credentials
+                <div id="center">
+                
                 <form action="" method="POST" id="loginform">
                     <table id="logintable">
                         <tr>
@@ -92,8 +94,10 @@ include('Databaseadapter.php');
         ?>
                 </div>
                 <div id="errordiv">
+                    Email Id/Password is not valid
                 </div>
             </div>
+        </div>
 <?php
 } else {
     ?>
@@ -104,10 +108,11 @@ include('Databaseadapter.php');
     } else {
         ?>
                 <div id="body">
+                    <div id="center">
                     <form action="" method="POST" id="loginform">
                         <table id="logintable">
                             <tr>
-                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
+                                <td>Email Id</td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
                             </tr>
                             <tr>
                                 <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" required/></td>
@@ -128,7 +133,9 @@ include('Databaseadapter.php');
         ?>
                 </div>
                     <div id="errordiv">
+                        
                     </div>
+                </div>
                 </div>
     <?php }
 }?>

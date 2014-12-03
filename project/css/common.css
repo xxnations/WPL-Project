@@ -15,6 +15,10 @@
     float:right;
     margin-right: 25px;
 }
+
+#shoppingcartdiv:hover{
+    font-weight: bold;
+}
 /*
 .addtocartbutton {
    border-top: 1px solid #96d1f8;
@@ -180,10 +184,9 @@ background: #f2f2f2;
 border-top: 1px solid #e4e4e4;
 line-height: 40px;
 color: #333; 
+margin-bottom: 0px;
        
    }
-   
-  
    
    #body
    {
@@ -318,5 +321,16 @@ li > a:link
 {
     
     text-decoration: underline;
+}
+
+#logintable tr td{
+    font-weight: bold;
+}
+#registertable tr td{
+    font-weight: bold;
+}
+
+#registertable tr td span{
+    font-weight: normal;
 }
 
