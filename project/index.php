@@ -24,11 +24,21 @@ include('Databaseadapter.php');
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
-                
+            
+            <div id="topicsdiv">
         
 <?php if(empty($_SESSION['user']))
 {
 ?>
+                <div id="textdiv">
+            
+            <ul>
+                <li>To view the articles, you must subscribe the relevant topics of interest.</li>
+                <li>Once you are subscriber, you can see top & latest news for that topic</li>
+                <li>Real-time news are fetched from multiple sources</li>
+                <li>The subscription is for one month and if you enjoy our service then you can re-subscribe the same topic after one month</li>
+            </ul>
+            </div>
             <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" >
                 <div id="sortbar" class="sortbar">Sort :
                     <input type="button" id="price" value="Price">
@@ -101,6 +111,7 @@ foreach ($checkSubscription as $key => $value) {
 </div>
 </div>
 <?php }?>    </div>
+        </div>
             <div id="footer">
                 <?php include("common/footer.php"); ?>
             </div>

@@ -4,7 +4,10 @@
 ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-       <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> </div>
+       <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> 
+           <br>Sum Of All Knowledge At One Place
+       
+       </div>
        <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
@@ -42,7 +45,9 @@ else
     ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-        <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> </div>
+        <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> 
+            <br>Sum Of All Knowledge At One Place
+        </div>
        <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {

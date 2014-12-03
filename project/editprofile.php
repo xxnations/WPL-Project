@@ -247,7 +247,7 @@ exit;
              </div>
         </div>
        <?php } ?>
-            <div id="footer">
+            <div id="footest first be subscribed to the mailing list (see how to subscribe below).r">
                 <?php
        include("common/footer.php"); ?>
             </div>
