@@ -17,6 +17,17 @@ $(document).ready(function()
  
 function validateRegisterForm(){
     errormsg="";
+    
+    pswd=document.forms["registrationform"]["password"].value;
+    splitpswd=pswd.search(/[\w\d]*/);
+    
+    console.log(splitpswd);
+    if(true){
+       errormsg=errormsg+"Invalid password<br>";
+        error=true; 
+    }
+    
+    
     fn=document.forms["registrationform"]["firstname"].value;
     splitfn=fn.split(/[0-9]+/);
     if(splitfn.length!==1){
@@ -43,6 +54,8 @@ function validateRegisterForm(){
        errormsg=errormsg+"Invalid lastname<br>";
         error=true; 
     }
+    
+    
     }
     if(error===true){
         $("#errordiv").html(errormsg);
