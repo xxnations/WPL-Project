@@ -14,6 +14,7 @@ $(document).ready(function()
  function addEvent()
  {
      addtocartbuttons=document.getElementsByClassName('addtocartbutton');
+     topicbox=document.getElementsByClassName('topicbox');
      addtocartbuttonsnormal=document.getElementsByClassName('addtocartbuttonnormal');
      removefromcartbutton=document.getElementsByClassName('removefromcartbutton');
      pricespan=document.getElementsByClassName('pricespan');
@@ -23,11 +24,41 @@ $(document).ready(function()
      price=document.getElementById('price');
      alphabetically=document.getElementById('alphabetically');
      
-     if(addtocartbuttons.length!==0)
+     if(topicbox.length!==0)
   {
-  $.each(addtocartbuttons,function(){this.onclick=addToCart});
+     
+   $.each(topicbox,function(){
+       
+       this.onmouseenter=function()
+       {
+           id="#"+this.id+"button";
+           console.log(id);
+           $(id).fadeOut();
+       }
+       
+       this.onmouseleave=function()
+       {
+           id="#"+this.id+"button";
+           console.log(id);
+           
+           $(id).fadeIn();
+       }
+  });
   }
   
+  
+  
+  
+     if(addtocartbuttons.length!==0)
+  {
+    $.each(addtocartbuttons,function(){
+        console.log(this);
+        $(this).hide();
+        
+    });
+    $.each(addtocartbuttons,function(){this.onclick=addToCart});
+  }
+    
      if(removefromcartbutton.length!==0)
   {
    $.each(removefromcartbutton,function(){this.onclick=removeFromCart});

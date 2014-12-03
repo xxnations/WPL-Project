@@ -24,17 +24,18 @@ include('Databaseadapter.php');
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
-                <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" >
-                <div id="sortbar">Sort :
+                
+        
+<?php if(empty($_SESSION['user']))
+{
+?>
+            <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" >
+                <div id="sortbar" class="sortbar">Sort :
                     <input type="button" id="price" value="Price">
                     <input type="button" id="alphabetically" value="Alphabetically">
                     
                  </div>
                 </div>
-        
-<?php if(empty($_SESSION['user']))
-{
-?>
             <div id="listoftopicsdiv">
         <div id="listoftopics">
             
@@ -46,7 +47,7 @@ $topiclist="";
 //if(!empty($_SESSION['user']))
 //{
 foreach($result as $row) {
-    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\">" . $row['topicname'] . "<br><span id=\"pricespan\">" . $row['price'] . "</span><br><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\"><span id=\"span".$row['topicname']."\">" . ucfirst($row['topicname']) . " : $<span id=\"pricespan\">" . $row['price'] . "</span></span><br><span id=\"". $row['topicname'] ."button". "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
     
     $topiclist=$topiclist.",".$row['topicname'];
 }
@@ -80,7 +81,7 @@ foreach ($checkSubscription as $key => $value) {
 
 ?>
             <?php
-            echo ltrim($topiclist,",");
+            //echo ltrim($topiclist,",");
             
             ?>
      <div id="topiclist">
@@ -92,10 +93,12 @@ foreach ($checkSubscription as $key => $value) {
          ?>
      </div>
             <div id="sliderdiv">
+                <h4 id='newtitleheader'></h4>
 <div id="newscontainer"></div>
+<div id="buttonbar">
 <a class="button" href="#" id="prev" onclick="prev(); return false;" >Prev</a> 
-<a class="button" href="#" id="right" onclick="next(); return false;" >Next</a> 
- 
+<a class="button" href="#" id="next" onclick="next(); return false;" >Next</a> 
+</div>
 </div>
 <?php }?>    </div>
             <div id="footer">

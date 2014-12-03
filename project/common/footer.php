@@ -1,5 +1,3 @@
         <div id="footerdiv">
-             <?php
-        echo "Hello";
-        ?>
+        &#169; creative work by xxnations company
         </div>
