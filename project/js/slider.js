@@ -22,7 +22,7 @@ $(document).ready(function(){
 	  		
 		function slideNews()
 		{
-		  newscontainer.html("<h4 id='newtitleheader'></h4><div id='newsdescription'><ul id='newslist'/></div>");
+		  newscontainer.html("<div id='newsdescription'><ul id='newslist'/></div>");
 		  newtitleheader = document.getElementById("newtitleheader");
 		  newsdescription = document.getElementById("newsdescription");
 		  newslist =document.getElementById("newslist");
@@ -42,7 +42,7 @@ $(document).ready(function(){
 				
 			newtitleheader.innerHTML =""+title+"";
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000).fadeOut(500);
+			newscontainer.fadeIn(500).delay(11000000).fadeOut(500);
 			
         },
         error: function () {
@@ -83,7 +83,7 @@ $(document).ready(function(){
     });
 });
 	  			
-					}, 5*1000);
+					}, 5*1000000);
 		}
 		
 		

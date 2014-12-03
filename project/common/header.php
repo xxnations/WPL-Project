@@ -3,15 +3,18 @@
 {
 ?>
 <div id="headerdiv">
+    <div id="headeroptionsmain" class="headeroptionsmain">
             <table id="headertable">
                 <tr>
-                    <td><h3> <b><a href="index.php">{Article Subscription}</a></b></h3> </td>
-                    <td><h3> <b><a href="logout.php">Log out</a></b></h3> </td>
-                    <td><h3> <b><a href="myaccount.php">My Account</a></b></h3> </td>
-                    <td><h3> <b><a href="subscribe.php">Subscribe</a></b></h3> </td>
                     
+                        <td> <span id="articlesubscribtion" class="headeroptions"><a href="index.php">{ Article Subscription }</a></span></td>
+                        <td> <span id="logout" class="headeroptions"><a href="logout.php">Log out</a></span></td>
+                        <td> <span id="myaccount" class="headeroptions"><a href="myaccount.php">My Account</a></span></td>
+                        <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>
+                   
                 </tr>
             </table>
+         </div>
              <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
@@ -31,14 +34,18 @@ else
 {
     ?>
 <div id="headerdiv">
+    <div id="headeroptionsmain" class="headeroptionsmain">
             <table id="headertable">
                 <tr>
-                    <td><h3> <b><a href="index.php">{Article Subscription}</a></b></h3> </td>
-                    <td><h3> <b><a href="register.php">Register</a></b></h3> </td>
-                    <td><h3> <b><a href="login.php">login</a></b></h3> </td>
-                    <td><h3> <b><a href="forgotpassword.php"> Forgot Password </a></b></h3> </td>
+                    
+                        <td> <span id="articlesubscribtion" class="headeroptions"><a href="index.php">{ Article Subscription }</a></span></td>
+                        <td> <span id="register" class="headeroptions"><a href="register.php">Register</a></span></td>
+                        <td> <span id="login" class="headeroptions"><a href="login.php">Login</a></span></td>
+                        <td> <span id="forgotpassword" class="headeroptions"><a href="forgotpassword.php"> Forgot Password </a></span></td>
+                    
                 </tr>
             </table>
+        </div>
             <div id="shoppingcartdiv">
             <?php
             if (empty($_SESSION['cart'])) {
