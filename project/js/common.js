@@ -32,13 +32,13 @@ $(document).ready(function()
        this.onmouseenter=function()
        {
            id="#"+this.id+"button";
-           $(id).fadeIn();
+           $(id).show();
        }
        
        this.onmouseleave=function()
        {
            id="#"+this.id+"button";
-           $(id).fadeOut();
+           $(id).hide();
            
        }
   });

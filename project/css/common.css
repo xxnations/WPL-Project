@@ -3,6 +3,7 @@
        margin: 0px;
        background: none repeat scroll 0 0 #fff;
        font-family: "nyt-franklin",arial,helvetica,sans-serif;
+       
    }
    
    a:link {
@@ -144,6 +145,13 @@
        border-top-color: #1b435e;
    background: #1b435e;
    }
+   
+   .addtocartbutton {
+       
+   margin-top: 20px;    
+   }
+   
+   
    #headerdiv
    {
 /*       background: url(../images/header-darkblue1.jpg);
@@ -183,6 +191,7 @@ color: #333;
        height: 470px;
        width: 80%;
        overflow: hidden;
+       overflow-y: scroll;
    }
    
    #headertable
@@ -225,6 +234,14 @@ color: #333;
     
 }
 
+.topicbox:hover
+{
+    padding: 50px;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+}
+
 
 #topiclist
 {
@@ -234,6 +251,7 @@ color: #333;
 #listoftopicsdiv
 {
    margin-left: 25px;
+   
 }
 
 #headeroptionsmain
