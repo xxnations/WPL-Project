@@ -32,16 +32,14 @@ $(document).ready(function()
        this.onmouseenter=function()
        {
            id="#"+this.id+"button";
-           console.log(id);
-           $(id).fadeOut();
+           $(id).fadeIn();
        }
        
        this.onmouseleave=function()
        {
            id="#"+this.id+"button";
-           console.log(id);
+           $(id).fadeOut();
            
-           $(id).fadeIn();
        }
   });
   }
@@ -52,8 +50,8 @@ $(document).ready(function()
      if(addtocartbuttons.length!==0)
   {
     $.each(addtocartbuttons,function(){
-        console.log(this);
-        $(this).hide();
+        //console.log("#"+this.id.split(":")[1]+"button");
+        $("#"+this.id.split(":")[1]+"button").hide();
         
     });
     $.each(addtocartbuttons,function(){this.onclick=addToCart});
