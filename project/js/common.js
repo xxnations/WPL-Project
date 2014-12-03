@@ -95,7 +95,8 @@ $(document).ready(function()
            pricelist=new Array(); 
            pricesortOrder=0;
       $.each($("#listoftopics").children(),function(){
-       pricelist[$(this).children("[id=pricespan]").text()+","+this.id]=this;
+          console.log($(this).children("[id=span"+this.id+"]").children("[id=pricespan]").text());
+       pricelist[$(this).children("[id=span"+this.id+"]").children("[id=pricespan]").text()+","+this.id]=this;
           
       });
  }
