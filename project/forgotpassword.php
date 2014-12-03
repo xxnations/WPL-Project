@@ -111,7 +111,7 @@ include('Databaseadapter.php');
                     <form action="" method="POST" id="loginform">
                         <table id="logintable">
                             <tr>
-                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" /></td>
+                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
                             </tr>
                             
                             <tr align="right">
