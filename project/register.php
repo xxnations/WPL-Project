@@ -126,6 +126,7 @@ exit;
            
             ?>
         <div id="body">
+            <div id="center">
             <form action="" method="POST" id="registrationform">
             <table id="registertable">
                 <tr>
@@ -146,10 +147,10 @@ exit;
                  <?php if($_POST['gender']==="m")
                  {?>
                 <tr>   
-                    <td>Gender </td><td><input type="radio" name="gender" id="Male" value="m" checked="checked">Male</td>
+                    <td>Gender </td><td><span><input type="radio" name="gender" id="Male" value="m" checked="checked">Male</span></td>
                 </tr>
                 <tr>
-                    <td> </td><td><input type="radio" name="gender" id="Female" value="f" >Female</td>
+                    <td> </td><td><span><input type="radio" name="gender" id="Female" value="f" >Female</span></td>
                     
                 </tr>
                  <?php }
@@ -158,10 +159,10 @@ exit;
                      
 ?>
                 <tr>   
-                    <td>Gender </td><td><input type="radio" name="gender" id="m" value="Male">Male</td>
+                    <td>Gender </td><td><span><input type="radio" name="gender" id="m" value="Male">Male</span></td>
                 </tr>
                 <tr>
-                    <td> </td><td><input type="radio" name="gender" id="f" value="Female" checked="checked">Female</td>
+                    <td> </td><td><span><input type="radio" name="gender" id="f" value="Female" checked="checked">Female</span></td>
                     
                 </tr>
                  <?php } ?>
@@ -174,6 +175,7 @@ exit;
                 <?php echo ($errormsg); ?>
             </div>
              </div>
+        </div>
                 <?php
             
        }
@@ -182,28 +184,29 @@ exit;
         ?>
         
         <div id="body">
+            <div id="center">
             <form action="" method="POST" id="registrationform">
             <table id="registertable">
                 <tr>
-                    <td>First Name </td><td><input type="text" maxlength="20" name="firstname" id="firstname"/></td>
+                    <td>First Name </td><td><input type="text" maxlength="20" name="firstname" id="firstname" required/></td>
                 </tr>
                 <tr>
-                    <td>Last Name </td><td><input type="text" maxlength="20" name="lastname" id="lastname"/></td>
+                    <td>Last Name </td><td><input type="text" maxlength="20" name="lastname" id="lastname" required/></td>
                 </tr>
                 <tr>
-                    <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid"/></td>
+                    <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
                 </tr>
                 <tr>
-                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password"/></td>
+                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" required/></td>
                 </tr>
                 <tr>
-                    <td>Retype Password </td><td><input type="password" maxlength="20" name="repassword" id="repassword"/></td>
+                    <td>Retype Password </td><td><input type="password" maxlength="20" name="repassword" id="repassword" required/></td>
                  </tr>
                 <tr>   
-                    <td>Gender </td><td><input type="radio" name="gender" id="Male" value="m">Male</td>
+                    <td>Gender </td><td><span><input type="radio" name="gender" id="Male" value="m">Male</span></td>
                 </tr>
                 <tr>
-                    <td> </td><td><input type="radio" name="gender" id="Female" value="f" checked="checked">Female</td>
+                    <td> </td><td><span><input type="radio" name="gender" id="Female" value="f" checked="checked">Female</span></td>
                     
                 </tr>
                 <tr align="right">
@@ -214,6 +217,7 @@ exit;
             <div id="errordiv">
             </div>
              </div>
+        </div>
        <?php } ?>
             <div id="footer">
                 <?php

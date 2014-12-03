@@ -29,3 +29,16 @@ and open the template in the editor.
 #logintable tr td {
         padding: 10px;
 }
+
+#errordiv{
+    color: red;
+    font-family: tahoma;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+#center{
+    margin-top: 40px;
+    margin-left: 495px;
+    overflow-y: scroll;
+}
