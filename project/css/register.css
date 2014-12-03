@@ -40,5 +40,5 @@ and open the template in the editor.
 #center{
     margin-top: 40px;
     margin-left: 495px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }

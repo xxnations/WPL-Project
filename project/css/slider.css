@@ -2,7 +2,7 @@
 { 
 padding: 5px;
 margin: 15px;
-width:500px;
+width:700px;
 height:250px;
 margin-left: 300px;
 /* background-image: url('../img/loading.gif');
@@ -15,7 +15,7 @@ background-repeat:no-repeat;
 padding: 5px;
 text-align:left;
 height:300px;
-width:500px;
+width:700px;
 overflow:hidden;
 display:none;
 overflow-y: scroll;

@@ -14,6 +14,8 @@
 #shoppingcartdiv{
     float:right;
     margin-right: 25px;
+    display: inline;
+    
 }
 
 #shoppingcartdiv:hover{
@@ -184,7 +186,7 @@ background: #f2f2f2;
 border-top: 1px solid #e4e4e4;
 line-height: 40px;
 color: #333; 
-margin-bottom: 0px;
+
        
    }
    
@@ -194,7 +196,7 @@ margin-bottom: 0px;
        height: 470px;
        width: 80%;
        overflow: hidden;
-       overflow-y: scroll;
+       
    }
    
    #headertable
@@ -234,9 +236,21 @@ margin-bottom: 0px;
     float:left;
     padding: 50px;
     text-align: center;
+    margin: 10px;
+    display: inline;
     
 }
+#optionsbar
+{
+    clear: both;
+    float: right;
+}
 
+#headerimage
+{
+    float: left;
+    width: 200px;
+}
 .topicbox:hover
 {
     padding: 50px;
@@ -249,18 +263,28 @@ margin-bottom: 0px;
 #topiclist
 {
     display: none;
+    
 }
 
 #listoftopicsdiv
 {
    margin-left: 25px;
+   margin-top: 35px;
+   overflow-y: auto;
+  
    
+}
+
+#listoftopics
+{
+  display: inline;
 }
 
 #headeroptionsmain
 {
     margin-top: 7px;
     padding: 10px;
+    overflow-y:auto;
 }
 .headeroptions
 {
