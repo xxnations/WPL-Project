@@ -12,8 +12,10 @@ include('Databaseadapter.php');
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/register.css?time=<?php echo time(); ?>">
         <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
+        
         <title></title>
     </head>
     <body>
@@ -21,6 +23,7 @@ include('Databaseadapter.php');
         <?php include("common/header.php"); ?>
         </div>
         <div id="body">
+            <div id="center">
 <?php 
 $databaseadapter = new Databaseadapter();
 if(!empty($_SESSION['user']))
@@ -65,9 +68,11 @@ exit;
 
 }
 ?>
+            
             <form action="checkout.php" method="POST">
-        <table id="listoftopicsincart">
-            <tr><th>Topic Name</th><th>Price</th><th>Remove</th></tr>
+<!--        <table id="listoftopicsincart" cellpadding="5">
+            <tr><th></th><th>Topic</th><th>Price</th><th></th></tr>
+            <tr><td></td><td></td><td></td></tr>-->
 
 <?php
 try
@@ -79,15 +84,20 @@ if(count($cartitems)>1)
 {
 
 $result = $databaseadapter->getTopicsById($cartitems);
+$i=0;
+echo "<table id=\"listoftopicsincart\" cellpadding=\"5\">
+            <tr><th></th><th>Topic</th><th>Price</th><th></th></tr>
+            <tr><td></td><td></td><td></td></tr>";
 foreach ($result as $row) {
-    echo "<tr><td>" . $row['topicname'] . "</td><td>" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
+    echo "<tr><td>".++$i.".     </td><td>" . ucfirst($row['topicname']) . "</td><td>$" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
     $price=$price+$row['price'];
 }
+
 $_SESSION['totalprice']=$price;
 }
 else
 {
-    ?><tr align="center"><td colspan="3" > No items in Cart</td></tr>
+    ?><tr align="center"><td colspan="3" ><h3>No items in Cart</h3></td></tr>
         <?php
 }
 }
@@ -99,7 +109,9 @@ else
         </table>
                  <?php if(!empty($_SESSION['user']))
         {
-            echo "<button id=\"checkoutbutton\">CheckOut</button>";
+                     if(count($cartitems)>1){
+            echo "<br><button id=\"checkoutbutton\">CheckOut</button>";
+                     }
         }
         else
         {
@@ -123,14 +135,15 @@ else
                     ?>
                 </div>
                 <div id="paymentdiv">
-                    <span>Total Amount to Pay : <?php echo $price; ?></span>
+                    <span><br>Total Amount to Pay : $<?php echo $price; ?></span>
                     <span> <button id="paybutton">Pay</button></span>
                 </div>
             </form>
         </div>
-       
+        </div>
                     <div id="footer">
                 <?php include("common/footer.php"); ?>
             </div>
+            
     </body>
 </html>

@@ -5,7 +5,7 @@
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
        <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
-           <br>Sum Of All Knowledge At One Place
+           
        
        </div>
        <div id="shoppingcartdiv">
