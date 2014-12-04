@@ -26,9 +26,9 @@
                 <tr>
                     
                         <td> <span id="articlesubscribtion" class="headeroptions"><a href="index.php">Home</a></span></td>
-                        <td> <span id="logout" class="headeroptions"><a href="logout.php">Log out</a></span></td>
+                        <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>                        
                         <td> <span id="myaccount" class="headeroptions"><a href="myaccount.php">My Account</a></span></td>
-                        <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>
+                        <td> <span id="logout" class="headeroptions"><a href="logout.php">Log out</a></span></td>
                    
                 </tr>
             </table>
