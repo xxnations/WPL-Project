@@ -100,6 +100,7 @@ foreach ($checkSubscription as $key => $value) {
          if(!empty($topiclist))
          {
          echo ltrim($topiclist,",");
+         $_SESSION['topicssubscribed']=ltrim($topiclist,",");
          }
          ?>
      </div>
