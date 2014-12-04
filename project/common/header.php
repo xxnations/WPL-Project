@@ -4,7 +4,7 @@
 ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-       <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> 
+       <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
            <br>Sum Of All Knowledge At One Place
        
        </div>
@@ -45,8 +45,8 @@ else
     ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-        <div id="headerimage"> <img src="../project/images/title.png" alt="The Article Subscription"> 
-            <br>Sum Of All Knowledge At One Place
+        <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
+         
         </div>
        <div id="shoppingcartdiv">
             <?php

@@ -84,7 +84,8 @@ include('Databaseadapter.php');
     }        
             ?>
             <div id="body">
-                Error in the credentials
+                <div id="center">
+                
                 <form action="" method="POST" id="loginform">
                     <table id="logintable">
                         <tr>
@@ -96,7 +97,9 @@ include('Databaseadapter.php');
                     </table>
                 </form>
                 <div id="errordiv">
+                    Enter a valid Email Id
                 </div>
+            </div>
             </div>
 <?php
 } else {
@@ -108,10 +111,11 @@ include('Databaseadapter.php');
     } else {
         ?>
                 <div id="body">
+                    <div id="center">
                     <form action="" method="POST" id="loginform">
                         <table id="logintable">
                             <tr>
-                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
+                                <td>Email Id</td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
                             </tr>
                             
                             <tr align="right">
@@ -122,6 +126,7 @@ include('Databaseadapter.php');
 
                     <div id="errordiv">
                     </div>
+                </div>
                 </div>
     <?php }
 }?>

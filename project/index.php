@@ -31,7 +31,8 @@ include('Databaseadapter.php');
 {
 ?>
                 <div id="textdiv">
-            
+                    
+                    <b>Description</b>
             <ul>
                 <li>To view the articles, you must subscribe the relevant topics of interest.</li>
                 <li>Once you are subscriber, you can see top & latest news for that topic</li>
@@ -39,10 +40,10 @@ include('Databaseadapter.php');
                 <li>The subscription is for one month and if you enjoy our service then you can re-subscribe the same topic after one month</li>
             </ul>
             </div>
-            <div id="searchbardiv"> Search : <input type="text" id="searchbar" name="searchbar" >
-                <div id="sortbar" class="sortbar">Sort :
-                    <input type="button" id="price" value="Price">
-                    <input type="button" id="alphabetically" value="Alphabetically">
+            <div id="searchbardiv"> Search Topics   <input type="text" id="searchbar" name="searchbar" >
+                <div id="sortbar" class="sortbar"><br><br>
+                    <input type="button" id="price" value="Sort By Price">
+                    <input type="button" id="alphabetically" value="Sort Alphabetically">
                     
                  </div>
                 </div>
@@ -57,7 +58,7 @@ $topiclist="";
 //if(!empty($_SESSION['user']))
 //{
 foreach($result as $row) {
-    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\"><span id=\"span".$row['topicname']."\">" . ucfirst($row['topicname']) . " : $<span id=\"pricespan\">" . $row['price'] . "</span></span><br><span id=\"". $row['topicname'] ."button". "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\"><span id=\"span".$row['topicname']."\">" . ucfirst($row['topicname']) . " <br> $<span id=\"pricespan\">" . $row['price'] . "</span></span><br><span id=\"". $row['topicname'] ."button". "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
     
     $topiclist=$topiclist.",".$row['topicname'];
 }

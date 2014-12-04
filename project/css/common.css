@@ -167,7 +167,7 @@
 background: #f2f2f2;
 border-bottom: 3px solid #e4e4e4;
 border-top: 3px solid #e4e4e4;
-color: #333; 
+color: maroon; 
 //line-height: 40px;
        width: 100%;
        //height: 10%;
@@ -221,8 +221,8 @@ position: relative;
 #searchbardiv
 {
     padding: 10px;
-    
-    text-align: center;
+    font-family: Lucida Sans Unicode;
+    text-align: center;   
     
    
 }
@@ -276,18 +276,29 @@ position: relative;
     
 }
 
+#subscriptionhistorytable{
+    text-align: center;
+    padding: 50px;
+   
+    table-layout: auto;
+}
+
 #listoftopicsdiv
 {
    margin-left: 25px;
    margin-top: 35px;
    overflow-y: auto;
+   font-family: Aharoni;
+   //font-weight: bold;
+   font-size: 20px;
+       
   
    
 }
 
 #listoftopics
 {
-  display: inline;
+ // display: inline;
 }
 
 #headeroptionsmain
@@ -371,10 +382,13 @@ li > a:link
     display: inline;
     float: left;
     width: 23%;
-    //text-align: justify;
+    text-align: justify;
     background-color: #F2F2F2;
     font-family: Lucida Sans Unicode;
-    //height: 80%;
+    height: 100%;
+    position: relative;
+    padding: 5px;
+    font-size: 15px;
 }
 
 #topicsdiv{

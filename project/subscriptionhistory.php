@@ -28,7 +28,7 @@ include('Databaseadapter.php');
         <div id="body">
 <table id="subscriptionhistorytable">
     <tr>
-        <th> Subscribtion Id</th>
+        <th> Id</th>
         <th> Topic Name </th>
         <th> Valid Upto</th>
     </tr>
