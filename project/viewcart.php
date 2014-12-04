@@ -89,7 +89,7 @@ echo "<table id=\"listoftopicsincart\" cellpadding=\"5\">
             <tr><th></th><th>Topic</th><th>Price</th><th></th></tr>
             <tr><td></td><td></td><td></td></tr>";
 foreach ($result as $row) {
-    echo "<tr><td>".++$i.".     </td><td>" . ucfirst($row['topicname']) . "</td><td>$" . $row['price'] . "</td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Remove</button></span></td></tr>";
+    echo "<tr><td>".++$i.".     </td><td>" . ucfirst($row['topicname']) . "</td><td>$<span class=\"pertopicprice\">" . $row['price'] . "</span></td><td><span id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\"><button class=\"removefromcartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . ":".$row['price']. "\">Remove</button></span></td></tr>";
     $price=$price+$row['price'];
 }
 
@@ -97,7 +97,7 @@ $_SESSION['totalprice']=$price;
 }
 else
 {
-    ?><tr align="center"><td colspan="3" ><h3>No items in Cart</h3></td></tr>
+    ?><<h3>No items in Cart</h3>
         <?php
 }
 }
@@ -105,8 +105,9 @@ else
  {
      echo $ex->getMessage();
  }
+ echo "</table>";
 ?>
-        </table>
+        
                  <?php if(!empty($_SESSION['user']))
         {
                      if(count($cartitems)>1){
@@ -135,7 +136,7 @@ else
                     ?>
                 </div>
                 <div id="paymentdiv">
-                    <span><br>Total Amount to Pay : $<?php echo $price; ?></span>
+                    <span><br>Total Amount to Pay : $<span id="pricetopay"><?php echo $price; ?></span></span>
                     <span> <button id="paybutton">Pay</button></span>
                 </div>
             </form>

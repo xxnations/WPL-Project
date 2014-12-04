@@ -18,6 +18,7 @@ $(document).ready(function()
      addtocartbuttonsnormal=document.getElementsByClassName('addtocartbuttonnormal');
      removefromcartbutton=document.getElementsByClassName('removefromcartbutton');
      pricespan=document.getElementsByClassName('pricespan');
+     pertopicprice=document.getElementsByClassName('pertopicprice');
      checkoutbutton=document.getElementById('checkoutbutton');
      emailid=document.getElementById('emailid');
      searchbar=document.getElementById('searchbar');
@@ -26,8 +27,10 @@ $(document).ready(function()
      body=document.getElementById('body');
      topicssubscribedtable=document.getElementById('topicssubscribedtable');
      topicssubscribedspan=document.getElementById('topicssubscribedspan');
-     
-    
+     pricetopayspan=document.getElementById('pricetopay');
+     paybutton=document.getElementById('paybutton');
+   
+        
    if(topicssubscribedspan!==null)
         {
       topicssubscribedspan.onclick=showtopicssubscribedtable;
@@ -111,7 +114,7 @@ $(document).ready(function()
            pricelist=new Array(); 
            pricesortOrder=0;
       $.each($("#listoftopics").children(),function(){
-          console.log($(this).children("[id=span"+this.id+"]").children("[id=pricespan]").text());
+          //console.log($(this).children("[id=span"+this.id+"]").children("[id=pricespan]").text());
        pricelist[$(this).children("[id=span"+this.id+"]").children("[id=pricespan]").text()+","+this.id]=this;
           
       });
@@ -158,6 +161,36 @@ $(document).ready(function()
  
   function removeFromCart()
  {
+     pricetopay=0;
+     pricetopay=parseInt($(pricetopayspan).html());
+     pricetoremove=parseInt(this.id.split(":")[2]);
+     //console.log(pricetoremove);
+     if(pricetopay>0)
+     {
+         pricetopay=pricetopay-pricetoremove;
+         if(pricetopay<=0)
+         {
+             $(paybutton).prop("disabled",true);
+             $(checkoutbutton).prop("disabled",true);
+         }
+         else
+         {
+             $(paybutton).prop("disabled",false);
+         }
+         
+     }
+     else
+     {
+         $(paybutton).prop("disabled",true);
+         $(checkoutbutton).prop("disabled",true);
+         
+     }
+     $(pricetopayspan).empty().html(pricetopay);
+    //console.log(pricetopay);
+    $('#paymentdiv').show();
+    
+    
+    
      item=this.name.split(":");
      pid=item[0];
      topic=item[1];
@@ -187,7 +220,26 @@ $(document).ready(function()
  
 function checkout()
 {
-    //console.log("Clicked Checkout");
+    
+    //$('#paymentdiv').show();
+    pricetopay=0;
+    $.each(pertopicprice,function()
+    {
+        pricetopay=pricetopay+parseInt($(this).text());
+    }
+            );
+    $(pricetopayspan).html(pricetopay);
+    if(pricetopay<=0)
+    {
+     $(paybutton).prop("disabled",true);
+     $(checkoutbutton).prop("disabled",true);
+     
+    }
+    else
+    {
+        $(paybutton).prop("disabled",false);
+    }
+    //console.log(pricetopay*10);
     $('#paymentdiv').show();
     return false;
 }

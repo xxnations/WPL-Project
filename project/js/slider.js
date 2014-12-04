@@ -42,7 +42,7 @@ $(document).ready(function(){
 				
 			newtitleheader.innerHTML =""+title.toUpperCase()+"";
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000000).fadeOut(500);
+			$(newscontainer).show();
 			
         },
         error: function () {
@@ -73,7 +73,7 @@ $(document).ready(function(){
             	});
 			newtitleheader.innerHTML =title.toUpperCase();
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000).fadeOut(500);
+			$(newscontainer).show();
 			
         },
         error: function () {
@@ -83,7 +83,7 @@ $(document).ready(function(){
     });
 });
 	  			
-					}, 5*1000000);
+					}, 15*1000);
 		}
 		
 		
@@ -118,7 +118,7 @@ $(document).ready(function(){
             	});
 			newtitleheader.innerHTML =title.toUpperCase();
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000).fadeOut(500);
+			$(newscontainer).show();
 			
         },
         error: function () {
@@ -128,7 +128,7 @@ $(document).ready(function(){
     });
 });
 	  			
-					}, 5*1000);
+					}, 15*1000);
 		}
 		
 				function next()
@@ -154,7 +154,7 @@ $(document).ready(function(){
 			
 			newtitleheader.innerHTML =title.toUpperCase();
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000);
+			$(newscontainer).show();
 			startSlide();
         },
         error: function () {
@@ -192,7 +192,7 @@ $(document).ready(function(){
 			
 			newtitleheader.innerHTML =title.toUpperCase();
 			newslist.innerHTML = item_html;
-			newscontainer.fadeIn(500).delay(11000);
+			$(newscontainer).show();
 			startSlide();
         },
         error: function () {
