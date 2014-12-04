@@ -39,9 +39,15 @@ $(document).ready(function(){
 		    $(data.responseData.feed.entries).each(function (index, entry) {
                 item_html = item_html+'<li><a target="_blank" href="' + entry.link + '">' + entry.title + '</a></li>';
                 });
-				
+			if(title==="")
+                        {
+                            newtitleheader.innerHTML ="General News";
+                        }
+                        else
+                        {
 			newtitleheader.innerHTML =""+title.toUpperCase()+"";
-			newslist.innerHTML = item_html;
+                        }
+                        newslist.innerHTML = item_html;
 			$(newscontainer).show();
 			
         },
@@ -71,7 +77,14 @@ $(document).ready(function(){
             $(data.responseData.feed.entries).each(function (index, entry) {
                 item_html = item_html+'<li><a target="_blank" href="' + entry.link + '">' + entry.title + '</a></li>';
             	});
-			newtitleheader.innerHTML =title.toUpperCase();
+			if(title==="")
+                        {
+                            newtitleheader.innerHTML ="General News";
+                        }
+                        else
+                        {
+			newtitleheader.innerHTML =""+title.toUpperCase()+"";
+                        }
 			newslist.innerHTML = item_html;
 			$(newscontainer).show();
 			
@@ -116,7 +129,14 @@ $(document).ready(function(){
             $(data.responseData.feed.entries).each(function (index, entry) {
                 item_html = item_html+'<li><a target="_blank" href="' + entry.link + '">' + entry.title + '</a></li>';
             	});
-			newtitleheader.innerHTML =title.toUpperCase();
+			if(title==="")
+                        {
+                            newtitleheader.innerHTML ="General News";
+                        }
+                        else
+                        {
+			newtitleheader.innerHTML =""+title.toUpperCase()+"";
+                        }
 			newslist.innerHTML = item_html;
 			$(newscontainer).show();
 			
@@ -152,7 +172,14 @@ $(document).ready(function(){
                 item_html = item_html+'<li><a target="_blank" href="' + entry.link + '">' + entry.title + '</a></li>';
         		});
 			
-			newtitleheader.innerHTML =title.toUpperCase();
+			if(title==="")
+                        {
+                            newtitleheader.innerHTML ="General News";
+                        }
+                        else
+                        {
+			newtitleheader.innerHTML =""+title.toUpperCase()+"";
+                        }
 			newslist.innerHTML = item_html;
 			$(newscontainer).show();
 			startSlide();
@@ -190,7 +217,14 @@ $(document).ready(function(){
                 item_html = item_html+'<li><a target="_blank" href="' + entry.link + '">' + entry.title + '</a></li>';
         		});
 			
-			newtitleheader.innerHTML =title.toUpperCase();
+			if(title==="")
+                        {
+                            newtitleheader.innerHTML ="General News";
+                        }
+                        else
+                        {
+			newtitleheader.innerHTML =""+title.toUpperCase()+"";
+                        }
 			newslist.innerHTML = item_html;
 			$(newscontainer).show();
 			startSlide();

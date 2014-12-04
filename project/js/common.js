@@ -29,6 +29,7 @@ $(document).ready(function()
      topicssubscribedspan=document.getElementById('topicssubscribedspan');
      pricetopayspan=document.getElementById('pricetopay');
      paybutton=document.getElementById('paybutton');
+     errordiv=document.getElementById('errordiv');
    
         
    if(topicssubscribedspan!==null)
@@ -267,10 +268,11 @@ function validateEmail()
                                     {
                                      //console.log("Invalid Email");
                                      registerbutton.disabled=true;
+                                    $(errordiv).html("<span id=\"emailerror\">Email Already Exists<\span>");
                                     }
                                     else
                                     {
-                                        
+                                         $("#emailerror").empty();
                                           loginbutton.disabled=false;
                                     }
                                 }
@@ -279,12 +281,14 @@ function validateEmail()
                                     if(registerbutton!==null)
                                     {
                                     //console.log("Valid Email");
+                                    $("#emailerror").empty();
                                     registerbutton.disabled=false;
                                     }
                                     else
                                         
                             {
                                 loginbutton.disabled=true;
+                                $(errordiv).html("<span id=\"emailerror\">Email Does not exist<\span>");
                             }
                                 }
                         //$("#shoppingcartdiv").hide().html("<a href=\"viewcart.php\">Cart Items = "+((JSON.parse(data)["size"])-1)).fadeIn("fast")+"</a>";

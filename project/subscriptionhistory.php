@@ -30,7 +30,7 @@ include('Databaseadapter.php');
             
             ?>
         <div id="body">
-             <?php if(!empty('$subscritionHistory')){ ?>
+             <?php if(!empty($subscritionHistory)){ ?>
             <div id="subscriptionhistorydiv" align="center" >
 <table id="subscriptionhistorytable" cellpadding="30" border="1">
     <tr>

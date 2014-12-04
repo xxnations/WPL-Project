@@ -52,7 +52,7 @@ include('Databaseadapter.php');
                 if (!empty($result)) {
                     foreach ($result as $row) {
                         var_dump($row);
-                        $_SESSION['username'] = $row['firstname'];
+                        $_SESSION['username'] = ucfirst($row['firstname']);
                         $_SESSION['user'] = $row['userid'];
                         $_SESSION['emailid'] = $row['emailid'];
                         if($_SESSION['user'])

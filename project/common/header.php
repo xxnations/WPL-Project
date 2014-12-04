@@ -15,16 +15,18 @@
                 echo "Cart Items = 0";
                 echo "</a>";
             } else {
-                echo "<a href=viewcart.php>";
+                echo " <a href=viewcart.php>";
                 echo "Cart Items = ".(sizeof($_SESSION['cart'])-1);
                 echo "</a>";
             }
             ?>
         </div>
         <div id="optionsbar">
+            
             <table id="headertable">
                 <tr>
                     
+                        <td>  <span class="headeroptions"><a href="myaccount.php"><?php echo "Welcome ".$_SESSION['username']."!!"; ?></a></span></td>
                         <td> <span id="articlesubscribtion" class="headeroptions"><a href="index.php">Home</a></span></td>
                         <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>                        
                         <td> <span id="myaccount" class="headeroptions"><a href="myaccount.php">My Account</a></span></td>
