@@ -58,7 +58,7 @@ $topiclist="";
 //if(!empty($_SESSION['user']))
 //{
 foreach($result as $row) {
-    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\"><span id=\"span".$row['topicname']."\">" . ucfirst($row['topicname']) . " <br> $<span id=\"pricespan\">" . $row['price'] . "</span></span><br><span id=\"". $row['topicname'] ."button". "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
+    echo "<div class=\"topicbox\" id=\"" .$row['topicname'] . "\"><span id=\"span".$row['topicname']."\">" . strtoupper($row['topicname']) . " <br> $<span id=\"pricespan\">" . $row['price'] . "</span></span><br><span id=\"". $row['topicname'] ."button". "\"><button class=\"addtocartbutton\"  name=\"" . $row['topicid'] . ":" . $row['topicname'] . "\" id=\"" . $row['topicid'] . ":" . $row['topicname'] . "\">Add to Cart</button></span></div>";
     
     $topiclist=$topiclist.",".$row['topicname'];
 }
@@ -100,6 +100,7 @@ foreach ($checkSubscription as $key => $value) {
          if(!empty($topiclist))
          {
          echo ltrim($topiclist,",");
+         $_SESSION['topicssubscribed']=ltrim($topiclist,",");
          }
          ?>
      </div>

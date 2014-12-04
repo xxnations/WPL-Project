@@ -23,7 +23,21 @@ $(document).ready(function()
      searchbar=document.getElementById('searchbar');
      price=document.getElementById('price');
      alphabetically=document.getElementById('alphabetically');
+     body=document.getElementById('body');
+     topicssubscribedtable=document.getElementById('topicssubscribedtable');
+     topicssubscribedspan=document.getElementById('topicssubscribedspan');
      
+    
+   if(topicssubscribedspan!==null)
+        {
+      topicssubscribedspan.onclick=showtopicssubscribedtable;
+  }
+    if(topicssubscribedtable!==null)
+        {
+      
+      $(topicssubscribedtable).hide();
+  }
+  
      if(topicbox.length!==0)
   {
      
@@ -89,6 +103,8 @@ $(document).ready(function()
         
      }
  
+ 
+
  function initializePriceSort()
  {
      //Sorted List
@@ -326,5 +342,11 @@ mapKeys.forEach(function(key) {
         $('#listoftopics').prepend(sortedList[x]).show();
        }
 }
+function showtopicssubscribedtable()
+{
+   $(topicssubscribedtable).show(); 
+}
+
+
 });
 

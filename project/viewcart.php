@@ -44,7 +44,7 @@ foreach ($checkSubscription as $key => $value) {
       //  echo $ikey." ".$ivalue." , ";
         if($value[0]===$ivalue)
         {
-            $removed=$removed.",".$ivalue;
+            $removed=$removed.", ".ucfirst($ivalue);
             unset($cartitems[$ikey]);
             $change=true;
             break;
@@ -126,8 +126,8 @@ else
                     {
                         if($_SESSION['showmessage'])
                         {
-                        echo "The following items are removed from your cart. Because you are already subscriped to it.<br> ".$_SESSION['removed'].""
-                                . "<br>Check <a href=\"subscriptionhistory.php\"> Subscription History</a> for more details.";
+                        echo "<br>Following items are removed from your cart as you have already subscribed to them:<br><br><span id=\"existingitems\"> ".$_SESSION['removed']."</span>"
+                                . "<br><br>Check <a href=\"myaccount.php\"> your account</a> for more details.";
                         $_SESSION['showmessage']=false;
                         }
                     }

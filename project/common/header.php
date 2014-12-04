@@ -5,8 +5,6 @@
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
        <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
-           
-       
        </div>
        <div id="shoppingcartdiv">
             <?php
