@@ -23,6 +23,8 @@ $(document).ready(function()
      searchbar=document.getElementById('searchbar');
      price=document.getElementById('price');
      alphabetically=document.getElementById('alphabetically');
+     body=document.getElementById('body');
+     
      
      if(topicbox.length!==0)
   {
