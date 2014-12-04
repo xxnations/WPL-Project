@@ -4,7 +4,7 @@
 ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-       <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
+        <div id="headerimage"><a href="index.php"><img src="../project/images/logo1.png" alt="The Article Subscription"></a>
        </div>
        <div id="shoppingcartdiv">
             <?php
@@ -26,9 +26,9 @@
                 <tr>
                     
                         <td> <span id="articlesubscribtion" class="headeroptions"><a href="index.php">Home</a></span></td>
-                        <td> <span id="logout" class="headeroptions"><a href="logout.php">Log out</a></span></td>
+                        <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>                        
                         <td> <span id="myaccount" class="headeroptions"><a href="myaccount.php">My Account</a></span></td>
-                        <td> <span id="subscribe" class="headeroptions"><a href="subscribe.php">Subscribe</a></span></td>
+                        <td> <span id="logout" class="headeroptions"><a href="logout.php">Log out</a></span></td>
                    
                 </tr>
             </table>
@@ -43,7 +43,7 @@ else
     ?>
 <div id="headerdiv">
     <div id="headeroptionsmain" class="headeroptionsmain">
-        <div id="headerimage"> <img src="../project/images/logo1.png" alt="The Article Subscription"> 
+        <div id="headerimage"><a href="index.php"><img src="../project/images/logo1.png" alt="The Article Subscription"> </a>
          
         </div>
        <div id="shoppingcartdiv">

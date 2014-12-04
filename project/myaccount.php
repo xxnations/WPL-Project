@@ -38,6 +38,10 @@ include('Databaseadapter.php');?>
                     <td><span id="topicssubscribedspan"><a href="#topicssubscribedtable">Current Subscription</a></span></td>
                 </tr>
             </table>
+            <?php
+            if(!empty($_SESSION['topicssubscribed'])){
+            ?>    
+            
             <div id="topicssubscribedtable">
                 <table id="currentsubscriptionhistorytable" cellpadding="5" border="1">
     <tr>
@@ -46,6 +50,7 @@ include('Databaseadapter.php');?>
         <th> Valid Upto</th>
     </tr>
                 <?php
+                
                 $topicssubscribed=  explode(",", $_SESSION['topicssubscribed']);
                 $databaseadapter = new Databaseadapter();
             $subscritionHistory = $databaseadapter->getSubscritionHistory($_SESSION['user']);
@@ -62,7 +67,11 @@ include('Databaseadapter.php');?>
                 </table>
             </div>
              </div>
-         <?php } ?>
+            <?php }
+            else{
+                echo "Nothing subscribed currently.";
+            }
+                 } ?>
             <div id="footer">
                 <?php
        include("common/footer.php"); ?>

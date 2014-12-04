@@ -30,18 +30,19 @@ include('Databaseadapter.php');
 <?php if(!empty($_SESSION['user']))
 {
 ?>
-                <div id="textdiv">
-                    
-                    <b>Description</b>
-            <ul>
-                <li>To view the articles, you must subscribe the relevant topics of interest.</li>
-                <li>Once you are subscriber, you can see top & latest news for that topic</li>
-                <li>Real-time news are fetched from multiple sources</li>
-                <li>The subscription is for one month and if you enjoy our service then you can re-subscribe the same topic after one month</li>
-            </ul>
+                                <div id="textdiv">
+                    <img src="images/img11.jpg" alt="Articles" height="160" width="310"><br><br>
+                    <b>HOW IT WORKS</b>
+
+                <br><br>To view the articles, you must subscribe the relevant topics of interest.
+                <br><br>Once you are subscriber, you can see top & latest news for that topic
+                <br><br>Real-time news are fetched from multiple sources
+                <br><br>The subscription is for one month and if you enjoy our service then you can re-subscribe the same topic after one month
+            
             </div>
-            <div id="searchbardiv"> Search Topics   <input type="text" id="searchbar" name="searchbar" >
-                <div id="sortbar" class="sortbar"><br><br>
+
+            <div id="searchbardiv"> <br>Search Topics   <input type="text" id="searchbar" name="searchbar">
+               <br><div id="sortbar" class="sortbar">
                     <input type="button" id="price" value="Sort By Price">
                     <input type="button" id="alphabetically" value="Sort Alphabetically">
                     
