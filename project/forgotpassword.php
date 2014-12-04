@@ -73,7 +73,7 @@ include('Databaseadapter.php');
                     /* Redirect browser */
             
                     echo "Send Email Success";
-                    $_SESSION['message']="An Email has been send successfully with Login Information";
+                    $_SESSION['message']="Password has been sent to your Email Id";
                     header("Location: login.php");
 
                     /* Make sure that code below does not get executed when we redirect. */
@@ -92,7 +92,7 @@ include('Databaseadapter.php');
                             <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid'];?>"/></td>
                         </tr>
                         <tr align="right">
-                            <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
+                            <td colspan="2" ><input type="submit" value="Reset" id='loginbutton' name='loginbutton'/></td>
                         </tr>
                     </table>
                 </form>
@@ -119,7 +119,7 @@ include('Databaseadapter.php');
                             </tr>
                             
                             <tr align="right">
-                                <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
+                                <td colspan="2" ><input type="submit" value="Reset" id='loginbutton' name='loginbutton'/></td>
                             </tr>
                         </table>
                     </form>

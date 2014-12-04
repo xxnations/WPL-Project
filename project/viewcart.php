@@ -97,7 +97,7 @@ $_SESSION['totalprice']=$price;
 }
 else
 {
-    ?><tr align="center"><td colspan="3" ><h3>No items in Cart</h3></td></tr>
+    ?><h3>No items in Cart</h3>
         <?php
 }
 }
