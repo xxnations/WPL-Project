@@ -13,8 +13,10 @@
 
 #shoppingcartdiv{
     float:right;
-    margin-right: 25px;
     display: inline;
+       padding-bottom: 6px;
+    padding-right: 18px;
+    padding-top: 12px;
     
 }
 
@@ -203,11 +205,14 @@ border-bottom: 3px solid #e4e4e4;
 border-top: 3px solid #e4e4e4;
 line-height: 100%;
 color: #333; 
+    text-align: center;
+    padding: 5px;
 
 //margin-bottom: 0px;
 height: 10%;
 position: relative;
 
+margin-top: 6%;
 
        
    }
@@ -248,7 +253,7 @@ position: relative;
 }
 
 #sortbar{
-    padding: 10px;
+    padding: 10px 100px 10px 10px;
 }
 /*.ui-menu-item
 {
@@ -273,13 +278,20 @@ position: relative;
 {
     clear: both;
     float: right;
+    padding: 5px;
 }
 
 #headerimage
 {
     float: left;
     width: 300px;
-    height: 10px;
+    padding-top: 10px;
+    
+}
+#headerimage img
+{
+    width: 23%;
+    position: absolute;
 }
 
 .topicbox:hover
@@ -381,6 +393,7 @@ position: relative;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;*/
   // border-radius: 80px;
   width: 500px;
+  margin-right: 170px;
     
 }
 li
@@ -413,7 +426,7 @@ li > a:link
     font-family: Lucida Sans Unicode;
     height: 100%;
     position: relative;
-    padding: 5px;
+    padding: 8px;
     //padding-top: 125px;
     font-size: 15px;
          border-right: 3px solid #e4e4e4;    
@@ -445,7 +458,7 @@ li > a:link
 }
 #footer
 {
-    margin-top: 6%;
+    
     
 }
 
