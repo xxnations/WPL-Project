@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<?php session_start();
+<?php
+session_start();
 include('Databaseadapter.php');
 ?>
 <html>
@@ -12,7 +7,7 @@ include('Databaseadapter.php');
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/register.css?time=<?php echo time(); ?>">
         <link rel="stylesheet" href="css/common.css?time=<?php echo time(); ?>">
-         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/common.js?time=<?php echo time(); ?>"></script>
         <script src="js/login_validtion.js?time=<?php echo time(); ?>"></script>
         <title></title>
@@ -26,24 +21,20 @@ include('Databaseadapter.php');
 
             $email = "";
             $password = "";
-            $error=false;
-            $errormsg="";
+            $error = false;
+            $errormsg = "";
             if (filter_var($_POST['emailid'], FILTER_VALIDATE_EMAIL)) {
                 $email = $_POST['emailid'];
-            }
-            else
-            {
-                $error=true;
-                $errormsg=$errormsg."Invalid Email";
+            } else {
+                $error = true;
+                $errormsg = $errormsg . "Invalid Email";
             }
 
             if (!(filter_var($_POST['password'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/['\"]/"))))) {
                 $password = $_POST['password'];
-            }
-            else
-            {
-                $error=true;
-                $errormsg=$errormsg."Invalid password";
+            } else {
+                $error = true;
+                $errormsg = $errormsg . "Invalid password";
             }
             if (strlen($email) > 3 && strlen($password) > 0) {
                 //Check here in database if userexist
@@ -55,50 +46,47 @@ include('Databaseadapter.php');
                         $_SESSION['username'] = ucfirst($row['firstname']);
                         $_SESSION['user'] = $row['userid'];
                         $_SESSION['emailid'] = $row['emailid'];
-                        if($_SESSION['user'])
-                            {
-                                /* Redirect browser */
-                    header("Location: index.php");
+                        if ($_SESSION['user']) {
+                            /* Redirect browser */
+                            header("Location: index.php");
 
-                    /* Make sure that code below does not get executed when we redirect. */
-                    exit;
-                            }
+                            /* Make sure that code below does not get executed when we redirect. */
+                            exit;
+                        }
                     }
                 }
             }
             ?>
             <div id="body">
                 <div id="center">
-                
-                <form action="" method="POST" id="loginform">
-                    <table id="logintable">
-                        <tr>
-                            <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid'];?>"/></td>
-                        </tr>
-                        <tr>
-                            <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" /></td>
-                        </tr>
-                        <tr align="right">
-                            <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
-                        </tr>
-                    </table>
-                </form>
-                <div id="messagediv">
-                    <?php
-        
-        if(!empty($_SESSION['message']))
-        {
+
+                    <form action="" method="POST" id="loginform">
+                        <table id="logintable">
+                            <tr>
+                                <td>Email </td><td><input type="email" maxlength="20" name="emailid" id="emailid" value="<?php echo $_POST['emailid']; ?>"/></td>
+                            </tr>
+                            <tr>
+                                <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" /></td>
+                            </tr>
+                            <tr align="right">
+                                <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div id="messagediv">
+    <?php
+    if (!empty($_SESSION['message'])) {
         echo $_SESSION['message'];
         unset($_SESSION['message']);
-        }
-        ?>
-                </div>
-                <div id="errordiv">
-                    Email Id/Password is not valid
+    }
+    ?>
+                    </div>
+                    <div id="errordiv">
+                        Email Id/Password is not valid
+                    </div>
                 </div>
             </div>
-        </div>
-<?php
+    <?php
 } else {
     ?>
 
@@ -109,39 +97,38 @@ include('Databaseadapter.php');
         ?>
                 <div id="body">
                     <div id="center">
-                    <form action="" method="POST" id="loginform">
-                        <table id="logintable">
-                            <tr>
-                                <td>Email Id</td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
-                            </tr>
-                            <tr>
-                                <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" required/></td>
-                            </tr>
-                            <tr align="right">
-                                <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
-                            </tr>
-                        </table>
-                    </form>
-<div id="messagediv">
-                    <?php
-        
-        if(!empty($_SESSION['message']))
-        {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
+                        <form action="" method="POST" id="loginform">
+                            <table id="logintable">
+                                <tr>
+                                    <td>Email Id</td><td><input type="email" maxlength="20" name="emailid" id="emailid" required/></td>
+                                </tr>
+                                <tr>
+                                    <td>Password </td><td><input type="password" maxlength="20" name="password" id="password" required/></td>
+                                </tr>
+                                <tr align="right">
+                                    <td colspan="2" ><input type="submit" value="Log In" id='loginbutton' name='loginbutton'/></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <div id="messagediv">
+        <?php
+        if (!empty($_SESSION['message'])) {
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
         }
         ?>
-                </div>
-                    <div id="errordiv">
-                        
+                        </div>
+                        <div id="errordiv">
+
+                        </div>
                     </div>
                 </div>
-                </div>
-    <?php }
-}?>
+                        <?php }
+                    }
+                    ?>
 
-            <div id="footer">
-    <?php include("common/footer.php");
+        <div id="footer">
+<?php include("common/footer.php");
 ?>
         </div>
     </body>

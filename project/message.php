@@ -8,30 +8,26 @@
     </head>
     <body>
         <div id="header">
-        <?php include("common/header.php"); ?>
+            <?php include("common/header.php"); ?>
         </div>
-         <div id="body">
-        <h2>
-            <?php
-        if(!empty($_SESSION['message']))
-        {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        header( "refresh:5;url=index.php" );
-        }
-        else
-        {
-            echo "Demo";
-        header( "refresh:5;url=index.php" );
-        }
-        ?>
-        </h2>
-         </div>
-        <div id="footer">
+        <div id="body">
+            <h2>
                 <?php
-       include("common/footer.php"); ?>
-            </div>
+                if (!empty($_SESSION['message'])) {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                    header("refresh:5;url=index.php");
+                } else {
+                    echo "Demo";
+                    header("refresh:5;url=index.php");
+                }
+                ?>
+            </h2>
+        </div>
+        <div id="footer">
+<?php include("common/footer.php"); ?>
+        </div>
     </body>
-    
-    
+
+
 </html>

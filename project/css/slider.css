@@ -1,29 +1,29 @@
 #sliderdiv
-{ 
-padding: 5px;
-margin: 15px;
-width:700px;
-height:250px;
-margin-left: 300px;
-/* background-image: url('../img/loading.gif');
-background-position :center;
-background-repeat:no-repeat;
- */}
+{
+    padding: 5px;
+    margin: 15px;
+    width:700px;
+    height:250px;
+    margin-left: 300px;
+    /* background-image: url('../img/loading.gif');
+    background-position :center;
+    background-repeat:no-repeat;
+    */}
 
 #newscontainer
 {
-padding: 5px;
-text-align:left;
-height:300px;
-width:700px;
-overflow:hidden;
-display:none;
-overflow-y: scroll;
+    padding: 5px;
+    text-align:left;
+    height:300px;
+    width:700px;
+    overflow:hidden;
+    display:none;
+    overflow-y: scroll;
 }
 
 .button
 {
-color: #FOFOFO;
+    color: #FOFOFO;
 
 }
 
@@ -36,7 +36,7 @@ color: #FOFOFO;
 
 #next
 {
-    
+
     float:right;
 }
 

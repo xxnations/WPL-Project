@@ -1,3 +1,3 @@
-        <div id="footerdiv">
-        &#169; Created By Shaishav & Pathik
-        </div>
+<div id="footerdiv">
+    &#169; Created By Shaishav & Pathik
+</div>
